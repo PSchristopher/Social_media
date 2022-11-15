@@ -1,0 +1,28 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.loginpage{
+    position: relative;
+}
+.loginpage .grad {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(140deg, #05141c, #030d12a6, #00000000);
+    /* background-image: url('../../../../assets/mount-mont-blanc-covered-snow-reflecting-water-evening-chamonix-france.jpg'); */
+    /* background: linear-gradient(90deg, 120deg, rgba(0,0,0,0.5) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);; */
+    /* background-image:linear-gradient(120deg, rgba(0,0,0,0.5) 50%  , transparent 50%), url(../../../../assets/mount-mont-blanc-covered-snow-reflecting-water-evening-chamonix-france.jpg); */
+    /* background-image: url(../../../../assets/mount-mont-blanc-covered-snow-reflecting-water-evening-chamonix-france.jpg); */
+    /* background-image:  url('../../../../assets/mount-mont-blanc-covered-snow-reflecting-water-evening-chamonix-france.jpg'); */
+    /* linear-gradient(120deg, rgba(0, 0, 0, 0.6)50%  , transparent 50%), */
+    /* background-size: cover; */
+}
+
+.loginpage .bg{
+    background-image: url('../../../../assets/mount-mont-blanc-covered-snow-reflecting-water-evening-chamonix-france.jpg');
+    height: 100vh;
+    background-size: cover;
+}
