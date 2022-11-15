@@ -7,8 +7,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'fakemailidbussiness@gmail.com',
-        pass: 'gkkxlbfznovxurwu'
+        user: process.env.SENDERMAIL,
+        pass: process.env.SENDERPASS
     }
 })
 
@@ -19,7 +19,7 @@ const sendOtp = async (result, res) => {
         console.log("OTP");
         console.log(OTP);
         var senEMail = {
-            from: 'fakemailidbussiness@gmail.com',
+            from: process.env.SENDERMAIL,
             to: result.email,
             subject: 'Sending Email My Instagram',
             text: `Hi ${result.fname} Your OTP pin has been generated `,
@@ -34,7 +34,7 @@ const sendOtp = async (result, res) => {
                 userId: result._id,
                 Otp: hashOTP,
                 Created: Date.now(),
-                Expiry: Date.now() + 10000
+                Expiry: Date.now() + 100000
             })
             await userverification.save()
         } else {
@@ -106,7 +106,9 @@ module.exports = {
     login: async (req, res) => {
         try {
             let userExist = await User.findOne({ email: req.body.email })
-            if (userExist) {
+           
+            if (userExist  ) {
+
                 let pass = await bcrypt.compare(req.body.password, userExist.password)
                 if (userExist.status != 'verified') {
                     res.status(200).json({ log: false, message: 'You havent Completed you verification' })
@@ -116,7 +118,7 @@ module.exports = {
                     if (pass) {
                         // const token = jwt.sign({ user: user.name, id: user._id }, "jwtSecret", { expiresIn: 300 })
                         // res.status(200).json({ msg: false, token: token, auth: true })
-                        const userToken = jwt.sign({ user: userExist.fname, id: userExist._id }, "jwtSecret", { expiresIn: 300 })
+                        const userToken = jwt.sign({ user: userExist.fname, id: userExist._id }, "jwtSecret", { expiresIn: 3000 })
                         res.status(200).json({ log: true, token: userToken, auth: true })
                     } else {
                         res.status(200).json({ log: false, message: 'Incorrect Password' })

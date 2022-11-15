@@ -17,7 +17,7 @@ function SignIn() {
 const userAuthenticeted = () => {
     axios.get("/isUserAuth", {
         headers: {
-            "x-access-token": localStorage.getItem("token"),
+            "x-access-token": localStorage.getItem("Usertoken"),
         },
     }).then((response) => {
         if (response.data.auth) navigate('/')

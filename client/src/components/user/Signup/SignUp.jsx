@@ -4,6 +4,9 @@ import axios from '../../../Axios/axios'
 import { useForm } from 'react-hook-form'
 import OTPInput, { ResendOTP } from "otp-input-react";
 import '../Signin/SignIn.css'
+import Countdown from 'react-countdown';
+
+
 
 function SignUp() {
 
@@ -12,11 +15,12 @@ function SignUp() {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [Errors, setErrors] = useState('')
-    const [OtpModal, setOtpModal] = useState(false)
+    const [OtpModal, setOtpModal] = useState(true)
     const [OTP, setOTP] = useState('');
     const [UserDetails, setUserDetails] = useState({})
     const [OtpError, setOtpError] = useState('')
     const navigate = useNavigate()
+    
     // const handleChange = (e) => {
     //     const { name, value } = e.target
     //     setformValues({ ...formValues, [name]: value })
@@ -68,25 +72,25 @@ function SignUp() {
                 console.log(response.data);
                 setUserDetails(response.data.user)
                 setOtpModal(true)
-               
+
             }
         })
     }
     const onVerify = (e) => {
         e.preventDefault()
         console.log(UserDetails);
-        const data ={
-            OTP:OTP,
-            user:UserDetails._id
-        } 
-            
+        const data = {
+            OTP: OTP,
+            user: UserDetails._id
+        }
+
         if (OTP.length < 6) {
             setOtpError('Enter A 6 digit Otp')
-        }else{
-           
-            axios.post('/verifyOtp',data).then((response)=>{
+        } else {
+
+            axios.post('/verifyOtp', data).then((response) => {
                 console.log(response.data)
-                if(response.data.verified){
+                if (response.data.verified) {
                     navigate('/login')
                 }
                 setOtpError(response.data.msg)
@@ -148,17 +152,17 @@ function SignUp() {
 
                                                     </div>
 
+                                                    <Countdown date={Date.now() + 100000} />
                                                     <div id="otp" className="flex flex-row justify-center text-center px-2 mt-5">
-
                                                         {/* <input className="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="first" maxlength="1" />
                                                         <input className="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="second" maxlength="1" />
                                                         <input className="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="third" maxlength="1" />
                                                         <input className="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="fourth" maxlength="1" />
                                                         <input className="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="fifth" maxlength="1" />
                                                         <input className="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> */}
-                                                        <OTPInput value={OTP} onChange={ setOTP} autoFocus OTPLength={6} otpType="number" disabled={false} />
+                                                        <OTPInput value={OTP} onChange={setOTP} autoFocus OTPLength={6} otpType="number" disabled={false} />
                                                     </div>
-                                                        <p className='text-red-500 font-[8px] mb-3 pl-3'>{OtpError}</p>
+                                                    <p className='text-red-500 font-[8px] mb-3 pl-3'>{OtpError}</p>
 
                                                     <div className="flex justify-center text-center mt-5">
 

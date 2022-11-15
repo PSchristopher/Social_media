@@ -33,16 +33,17 @@ const userAuthenticeted = () => {
     <>
       <div className='bg-[#0F213E] '>
         <Navbar />
-        <div className='flex  '>
-          <div className='w-4/12 p-5 pl-40  '>
+        <div className='flex  max-w-[100%]'>
+          <div className='w-4/12 p-5 pl-20 hidden md:block max-w-[100%] '>
             <LsideBar />
           </div>
-          <div className='w-7/12 p-5'>
-            <Stories/>
+          <div className='md:w-7/12 p-5 flex-row justify-center max-w-[100%]'>
+            
+            <Stories  />
 
             <Feed />
           </div>
-          <div className='w-5/12 p-5 pr-40  ' >
+          <div className='w-5/12 p-5 pr-20 hidden md:block max-w-[100%] ' >
             <RsideBar />
           </div>
 
