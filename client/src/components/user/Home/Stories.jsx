@@ -10,1112 +10,1112 @@ function Stories() {
                         <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                     </div>
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300  w-16 truncate text-center'>user_name</p>
             </div>
 
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
             <div>
                 <div className=''>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                 </div>
-                <p className='text-xs text-[#596C7A] w-16 truncate text-center'>user_name</p>
+                <p className='text-xs text-slate-300 w-16 truncate text-center'>user_name</p>
             </div>
         </div>
 

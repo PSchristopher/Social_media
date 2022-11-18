@@ -15,7 +15,7 @@ function SignUp() {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [Errors, setErrors] = useState('')
-    const [OtpModal, setOtpModal] = useState(true)
+    const [OtpModal, setOtpModal] = useState(false)
     const [OTP, setOTP] = useState('');
     const [UserDetails, setUserDetails] = useState({})
     const [OtpError, setOtpError] = useState('')

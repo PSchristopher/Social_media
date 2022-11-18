@@ -23,7 +23,6 @@ const userAuthenticeted = () => {
         },
     }).then((response) => {
         if (response.data.auth) {
-
             navigate('/')
         }
         else navigate('/login')

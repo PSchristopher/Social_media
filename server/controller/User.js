@@ -1,8 +1,10 @@
 const User = require('../Modal/user')
 const userVerification = require('../Modal/userVerfication')
+const newPost = require('../Modal/post')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 var nodemailer = require('nodemailer');
+var multer = require('../config/multterConfig')
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -22,8 +24,8 @@ const sendOtp = async (result, res) => {
             from: process.env.SENDERMAIL,
             to: result.email,
             subject: 'Sending Email My Instagram',
-            text: `Hi ${result.fname} Your OTP pin has been generated `,
-            html: `<h1>Hi ${result.fname}</h1><p>Your OTP is ${OTP}</p>`
+            text: `Hi ${result.first_name} Your OTP pin has been generated `,
+            html: `<h1>Hi ${result.first_name}</h1><p>Your OTP is ${OTP}</p>`
         }
 
 
@@ -106,8 +108,8 @@ module.exports = {
     login: async (req, res) => {
         try {
             let userExist = await User.findOne({ email: req.body.email })
-           
-            if (userExist  ) {
+
+            if (userExist) {
 
                 let pass = await bcrypt.compare(req.body.password, userExist.password)
                 if (userExist.status != 'verified') {
@@ -119,7 +121,8 @@ module.exports = {
                         // const token = jwt.sign({ user: user.name, id: user._id }, "jwtSecret", { expiresIn: 300 })
                         // res.status(200).json({ msg: false, token: token, auth: true })
                         const userToken = jwt.sign({ user: userExist.fname, id: userExist._id }, "jwtSecret", { expiresIn: 3000 })
-                        res.status(200).json({ log: true, token: userToken, auth: true })
+
+                        res.status(200).json({ log: true, token: userToken, User: userExist._id, auth: true })
                     } else {
                         res.status(200).json({ log: false, message: 'Incorrect Password' })
                     }
@@ -156,6 +159,35 @@ module.exports = {
 
 
 
+    uploadPost: async (req, res) => {
+        try {
+            const postData = new newPost({
+                userId: req.body.User,
+                image: req.file.filename,
+                Created: Date.now(),
+                description: req.body.Caption
+            })
+            let result = postData.save()
+            if (result) {
+                res.status(200).json({ status: true })
+            } else {
+                res.status(200).json({ status: false })
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    },
 
+    getPost: async (req, res) => {
+        try {
+            let posts = await   newPost.find().sort({_id:-1})
+            console.log(posts);
+            if (posts) {
+                res.status(200).json({result:true,feed:posts})
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 }

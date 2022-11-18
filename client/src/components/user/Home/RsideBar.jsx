@@ -13,7 +13,7 @@ function RsideBar() {
                 </div>
                 <div className='ml-8 '>
                     <h2 className='text-[14px] font-semibold text-white'>Alex McCarthy</h2>
-                    <p className='text-[10px] text-[#596C7A]'>@alex_mcCarthy</p>
+                    <p className='text-[10px] text-slate-300'>@alex_mcCarthy</p>
                 </div>
                 <div className='ml-4'>
                     <h2 className='text-[14px] font-semibold  text-white float-right cursor-pointer bg-blue-600 rounded-2xl p-1 pr-3 pl-3 '>Following</h2>
@@ -29,7 +29,7 @@ function RsideBar() {
                 </div>
                 <div className='ml-8'>
                     <h2 className='text-[14px] font-semibold text-white'>Alex McCarthy</h2>
-                    <p className='text-[10px] text-[#596C7A]'>@alex_mcCarthy</p>
+                    <p className='text-[10px] text-slate-300'>@alex_mcCarthy</p>
                 </div>
                 <div className='ml-4'>
                     <h2 className='text-[14px] font-semibold  text-[#182D39] float-right cursor-pointer bg-[#D9D9D9] rounded-2xl p-1 pr-3 pl-3 '>Follow</h2>
@@ -46,7 +46,7 @@ function RsideBar() {
                 </div>
                 <div className='ml-8'>
                     <h2 className='text-[14px] font-semibold text-white'>Alex McCarthy</h2>
-                    <p className='text-[10px] text-[#596C7A]'>@alex_mcCarthy</p>
+                    <p className='text-[10px] text-slate-300'>@alex_mcCarthy</p>
                 </div>
                 <div className='ml-4'>
                     <h2 className='text-[14px] font-semibold  text-[#182D39] float-right cursor-pointer bg-[#D9D9D9] rounded-2xl p-1 pr-3 pl-3 '>Follow</h2>
@@ -63,7 +63,7 @@ function RsideBar() {
                 </div>
                 <div className='ml-8'>
                     <h2 className='text-[14px] font-semibold text-white'>Alex McCarthy</h2>
-                    <p className='text-[10px] text-[#596C7A]'>@alex_mcCarthy</p>
+                    <p className='text-[10px] text-slate-300'>@alex_mcCarthy</p>
                 </div>
                 <div className='ml-4'>
                     <h2 className='text-[14px] font-semibold  text-[#182D39] float-right cursor-pointer bg-[#D9D9D9] rounded-2xl p-1 pr-3 pl-3 '>Follow</h2>

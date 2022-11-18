@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -8,31 +8,54 @@ import { MdAddBox } from "react-icons/md";
 import { AiTwotoneBell } from "react-icons/ai";
 import logo from '../../../assets/logo.png'
 import user from '../../../assets/myPic.jpg'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { AppContext } from '../../../Context/Context';
 
-const navigation = [
-    { name: <AiFillHome />, href: '#', current: true },
-    { name: <RiMessage2Fill />, href: '#', current: false },
-    { name: <MdAddBox />, href: '#', current: false },
-    { name: <AiTwotoneBell />, href: '#', current: false },
-]
+
+
+
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 function Navbar() {
+
+
+
+    const {ShowPostModal, setShowPostModal} = useContext(AppContext)
+
+   const addPost =()=>{
+    console.log("hfvh");
+    setShowPostModal(!ShowPostModal)
+    console.log(ShowPostModal);
+   }
+
+    const navigation = [
+        { name: <AiFillHome />, current: true },
+        { name: <RiMessage2Fill />, current: false },
+        {
+            name: <MdAddBox />,
+            current: false,
+            action:addPost
+        },
+        { name: <AiTwotoneBell />, current: false },
+    ]
+
     const navigate = useNavigate()
     const logOut = () => {
         localStorage.removeItem('Usertoken');
         navigate("/login");
     }
+
+
     return (
         <>
 
             <Disclosure as="nav" className="bg-[#152442]">
                 {({ open }) => (
                     <>
+
                         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                             <div className="relative flex h-16 items-center justify-between">
                                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -74,18 +97,19 @@ function Navbar() {
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4 ">
-                                        {navigation.map((item) => (
-                                            <a
-                                                key={item.name}
-                                                href={item.href}
+                                        {navigation.map((item,index) => (
+                                            <div
+                                                key={index}
+                                                
                                                 className={classNames(
                                                     item.current ? ' text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                     'px-3 py-2 rounded-md font-medium text-2xl'
                                                 )}
+                                                onClick={ item.action }
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
-                                            </a>
+                                            </div>
                                         ))}
                                     </div>
                                 </div>
@@ -110,22 +134,22 @@ function Navbar() {
                                         leaveFrom="transform opacity-100 scale-100"
                                         leaveTo="transform opacity-0 scale-95"
                                     >
-                                        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-[#A0ADB4] py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <a
-                                                        href="#"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                    <Link
+                                                        to={'/userProfile'}
+                                                        className={classNames(active ? 'bg-gray-100 text-black' : '', 'block px-4 py-2 text-sm text-white')}
                                                     >
                                                         Your Profile
-                                                    </a>
+                                                    </Link>
                                                 )}
                                             </Menu.Item>
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
                                                         href="#"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                        className={classNames(active ? 'bg-gray-100 text-black ' : '', 'block px-4 py-2 text-sm  text-white')}
                                                     >
                                                         Settings
                                                     </a>
@@ -135,7 +159,7 @@ function Navbar() {
                                                 {({ active }) => (
                                                     <a
                                                         onClick={logOut}
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                        className={classNames(active ? 'bg-gray-100 text-black' : '', 'block px-4 py-2 text-sm  text-white')}
                                                     >
                                                         Sign out
                                                     </a>

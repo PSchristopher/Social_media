@@ -28,8 +28,8 @@ const userSchema = new mongoose.Schema({
         default: "pending"
     },
     report_status: {
-        type: Boolean,
-        default: false
+        type: String,
+        default: "active"
 
     },
     created: {

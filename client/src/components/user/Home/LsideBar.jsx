@@ -14,7 +14,7 @@ function LsideBar() {
                 </div>
                 <div className='ml-8 '>
                     <h2 className='text-[14px] font-semibold text-white'>Alex McCarthy</h2>
-                    <p className='text-[10px] text-[#596C7A]'>@alex_mcCarthy</p>
+                    <p className='text-[10px] text-slate-300'>@alex_mcCarthy</p>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@ function LsideBar() {
                 </div>
                 <div className='ml-8'>
                     <h2 className='text-[14px] font-semibold text-white'>Alex McCarthy</h2>
-                    <p className='text-[10px] text-[#596C7A]'>@alex_mcCarthy</p>
+                    <p className='text-[10px] text-slate-300'>@alex_mcCarthy</p>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@ function LsideBar() {
                 </div>
                 <div className='ml-8'>
                     <h2 className='text-[14px] font-semibold text-white'>Alex McCarthy</h2>
-                    <p className='text-[10px] text-[#596C7A]'>@alex_mcCarthy</p>
+                    <p className='text-[10px] text-slate-300'>@alex_mcCarthy</p>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@ function LsideBar() {
                 </div>
                 <div className='ml-8'>
                     <h2 className='text-[14px] font-semibold text-white'>Alex McCarthy</h2>
-                    <p className='text-[10px] text-[#596C7A]'>@alex_mcCarthy</p>
+                    <p className='text-[10px] text-slate-300'>@alex_mcCarthy</p>
                 </div>
             </div>
         </div>
