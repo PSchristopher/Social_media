@@ -2,7 +2,7 @@ import React from 'react'
 import myPic from '../../../assets/myPic.jpg'
 function Stories() {
     return (
-        <div className='flex space-x-2 overflow-x-scroll max-w-[40rem] bg-[#1f354d] border-gray-200 p-4 scroll-smooth scrollbar-hide rounded-lg mb-3 '>
+        <div className='container flex space-x-2 overflow-x-scroll max-w-[40rem] bg-[#1f354d] border-gray-200 p-4 scroll-smooth scrollbar-hide rounded-lg mb-3 '>
             <div>
 
                 <div className='flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>

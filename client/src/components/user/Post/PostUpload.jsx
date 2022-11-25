@@ -1,62 +1,70 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { AppContext } from '../../../Context/Context'
 import myPic from '../../../assets/myPic.jpg'
 import axios from '../../../Axios/axios'
 import jwtdecode from "jwt-decode"
+import ReactCrop from 'react-image-crop'
+import 'react-image-crop/dist/ReactCrop.css'
 
 
 function PostUpload() {
+
+  const inputRef = useRef()
+const triggerFileSelectPopup = ()=>inputRef.current.click()
+
   const { ShowPostModal, setShowPostModal } = useContext(AppContext)
   const [Image, setImage] = useState('')
   const [post, setPost] = useState({
     User: '', Caption: '',
     image: ''
-})
-const handleChange = (e)=>{
-  console.log("handlechange ann");
-  const { name, value } = e.target
-  setPost({
+  })
+  const handleChange = (e) => {
+    console.log("handlechange ann");
+    const { name, value } = e.target
+    setPost({
       ...post,
       [name]: value,
-  })
-  console.log(post);
-}
-const fileUpload = (e)=>{
-  let userDetails = jwtdecode(localStorage.getItem("Usertoken"))
-  console.log(userDetails);
-  console.log("file upload ann");
-  setImage(URL.createObjectURL(e.target.files[0]))
-  setPost({
+    })
+    console.log(post);
+  }
+  const fileUpload = (e) => {
+    let userDetails = jwtdecode(localStorage.getItem("Usertoken"))
+    console.log(userDetails);
+    console.log("file upload ann");
+    setImage(URL.createObjectURL(e.target.files[0]))
+    setPost({
       ...post,
       image: e.target.files[0],
       User: userDetails.id
-  })
- 
-}
-const  upload = ()=>{
-  console.log("upload cheyyan povann");
+    })
 
-  const formData = new FormData()
-  for(let key in post){
-    formData.append(key, post[key])
   }
-  console.log("post");
-  console.log(post);
-  console.log("formData");
-  console.log(formData);
-  axios.post('/newPost',formData).then((response)=>{
-    if(response.data.status){
-      setShowPostModal(false)
-      console.log("post added successfully");
-    }else{
-      setShowPostModal(false)
-      console.log("something went wrong");
+  const upload = () => {
+    console.log("upload cheyyan povann");
+
+    const formData = new FormData()
+    for (let key in post) {
+      formData.append(key, post[key])
     }
-  })
-}
+    console.log("post");
+    console.log(post);
+    console.log("formData");
+    console.log(formData);
+    axios.post('/newPost', formData).then((response) => {
+      if (response.data.status) {
+        setShowPostModal(false)
+        console.log("post added successfully");
+      } else {
+        setShowPostModal(false)
+        console.log("something went wrong");
+      }
+    })
+
+    
+  }
   return (
     <div>
-      
+
       {ShowPostModal ? (
         <>
           <div
@@ -70,7 +78,7 @@ const  upload = ()=>{
                   <div className='flex bg-transparent rounded-full w-full'>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                     {/* <input type="text" /> */}
-                    <textarea name="Caption" id="" className='w-full p-3'  onChange={handleChange} placeholder="Enter ur Caption" ></textarea>
+                    <textarea name="Caption" id="" className='w-full p-3' onChange={handleChange} placeholder="Enter ur Caption" ></textarea>
                   </div>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black  float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -82,11 +90,12 @@ const  upload = ()=>{
                   </button>
                 </div>
                 {/*body*/}
-                <div className="relative p-6 flex h-[450px] bg-cover border-8  justify-center " style={{backgroundImage: `url(${Image ||'https://imgs.search.brave.com/wyOMuJf8rNvTW5WUJoisK3bd0u7QBG5182Ov5vPpFbw/rs:fit:1000:667:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE0/ODUyODg3MzQ3NTYt/MGIzMWEwYTMxZDk1/P2l4bGliPXJiLTEu/Mi4xJml4aWQ9ZXlK/aGNIQmZhV1FpT2pF/eU1EZDkmdz0xMDAw/JnE9ODA'})` }}>
-                 <div className='flex justify-center items-center '>
-                <input type="file" title=''  name='image'className='w-[100px]' style={{color:`transparent`}} onChange={fileUpload} />
+                <div className="relative p-6 flex h-[450px] bg-cover border-8  justify-center " style={{ backgroundImage: `url(${Image || 'https://imgs.search.brave.com/wyOMuJf8rNvTW5WUJoisK3bd0u7QBG5182Ov5vPpFbw/rs:fit:1000:667:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE0/ODUyODg3MzQ3NTYt/MGIzMWEwYTMxZDk1/P2l4bGliPXJiLTEu/Mi4xJml4aWQ9ZXlK/aGNIQmZhV1FpT2pF/eU1EZDkmdz0xMDAw/JnE9ODA'})` }}>
+                  <div className='flex justify-center items-center '>
+                    <input type="file" title='' name='image' className='w-[100px]' ref={inputRef} style={{ color: `transparent`,display:'none' }} onChange={fileUpload} />
+                    <button className='w-[100px] bg-[#0F213E] text-white rounded-lg text-lg' onClick={triggerFileSelectPopup}>Choose</button>
+                  </div>
                 </div>
-                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-center p-6  border-solid bg-black border-slate-200 border-4 border-t-4 rounded-b-lg">
                   {/* <button
@@ -103,12 +112,12 @@ const  upload = ()=>{
                   >
                     Save Changes
                   </button> */}
-                
+
                   <button
                     className="text-white background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    
-                 onClick={upload} >
+
+                    onClick={upload} >
                     Upload
                   </button>
                 </div>

@@ -50,14 +50,14 @@ const userAuthenticeted = () => {
             <p className='text-red-500 font-[8px] mb-3 pl-3'>{Error}</p>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className='flex flex-col'>
-                <input type="text" name='email' placeholder='Username or Email' className='h-12 mb-6  rounded-lg bg-[#182D39] text-[#596C7A] pl-6'{...register('email', { required: 'Email cannot be Empty', pattern: { value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, message: 'Enter a proper Email' } })} />
+                <input type="text" name='email' placeholder=' Email' className='h-12 mb-6  rounded-lg bg-[#182D39] text-[#596C7A] pl-6'{...register('email', { required: 'Email cannot be Empty', pattern: { value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, message: 'Enter a proper Email' } })} />
                 <p className='text-red-500 font-[8px] mb-3 pl-3'>{errors.email?.message}</p>
 
                 <input type="password" name='password' placeholder='Password' className='h-12 mb-6 rounded-lg bg-[#182D39] text-[#596C7A] pl-6' {...register('password', { required: 'Password Required', pattern: { value: /^(?=.*[a-zA-Z]).{8,}$/, message: 'Enter a Proper Password' } })} />
                 <p className='text-red-500 font-[8px] mb-3 pl-3'>{errors.password?.message}</p>
 
                 <button className='bg-[#0F213E] h-12 w-[50%] rounded-lg text-white text-xl'>LOGIN</button>
-                <p className='text-blue-600 p-2'>Forgot Password ?</p>
+                <Link to={'/forgotPassword'} className='text-blue-600 p-2'>Forgot Password ?</Link>
               </div>
             </form>
             {/* <input type="text" name='email' placeholder='Username or Email' className='h-12 w-[30rem]' /> */}

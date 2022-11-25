@@ -10,45 +10,41 @@ function Home() {
 
 
   const navigate = useNavigate()
-  
+
 
   useEffect(() => {
     userAuthenticeted()
-}, [])
+  }, [])
 
-const userAuthenticeted = () => {
+  const userAuthenticeted = () => {
     axios.get("/isUserAuth", {
-        headers: {
-            "x-access-token": localStorage.getItem("Usertoken"),
-        },
+      headers: {
+        "x-access-token": localStorage.getItem("Usertoken"),
+      },
     }).then((response) => {
-        if (response.data.auth) {
-            navigate('/')
-        }
-        else navigate('/login')
+      if (response.data.auth == false) {
+        navigate('/login')
+      }
+      else navigate('/')
     });
-};
+  };
   return (
     <>
-      <div className='bg-[#0F213E] '>
+      <div className='bg-[#0F213E] container h-screen '>
         <Navbar />
         <div className='flex  max-w-[100%]'>
-          <div className='w-4/12 p-5 pl-20 hidden md:block max-w-[100%] '>
+          <div className='container w-4/12 p-5 pl-20 hidden md:block max-w-[100%] '>
             <LsideBar />
           </div>
-          <div className='md:w-7/12 p-5 flex-row justify-center max-w-[100%]'>
-            
-            <Stories  />
-
+          <div className='container md:w-7/12 p-5  flex-row justify-center max-w-[100%]'>
+            <Stories />
             <Feed />
           </div>
-          <div className='w-5/12 p-5 pr-20 hidden md:block max-w-[100%] ' >
+          <div className='container w-5/12 p-5 pr-20 hidden md:block max-w-[100%]  ' >
             <RsideBar />
           </div>
-
         </div>
       </div>
-
     </>
   )
 }

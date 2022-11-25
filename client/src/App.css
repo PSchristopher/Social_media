@@ -37,3 +37,11 @@
   }
 }
 
+.hide {
+  display: none;
+}
+
+.myDIV:hover + .hide , .hide:hover {
+  display: block;
+  color: red;
+}

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -10,6 +10,8 @@ import logo from '../../../assets/logo.png'
 import user from '../../../assets/myPic.jpg'
 import { useNavigate, Link } from 'react-router-dom';
 import { AppContext } from '../../../Context/Context';
+import axios from '../../../Axios/axios';
+import jwtdecode from "jwt-decode"
 
 
 
@@ -20,24 +22,40 @@ function classNames(...classes) {
 }
 
 function Navbar() {
+    const [User, setUser] = useState({})
+    useEffect(() => {
+
+        getUser()
+
+    }, [])
 
 
+    let userDetails = localStorage.getItem("Usertoken") ? jwtdecode(localStorage.getItem("Usertoken")) : ''
 
-    const {ShowPostModal, setShowPostModal} = useContext(AppContext)
+    const getUser = () => {
+        axios.get(`/getUserDtails/${userDetails.id}`).then((response) => {
+            setUser(response.data)
+        })
+    }
 
-   const addPost =()=>{
-    console.log("hfvh");
-    setShowPostModal(!ShowPostModal)
-    console.log(ShowPostModal);
-   }
+    const { ShowPostModal, setShowPostModal } = useContext(AppContext)
+    const [searchModal, setSearchModal] = useState(false)
+    const [Search, setSearch] = useState([])
+
+
+    const addPost = () => {
+        console.log("hfvh");
+        setShowPostModal(!ShowPostModal)
+        console.log(ShowPostModal);
+    }
 
     const navigation = [
-        { name: <AiFillHome />, current: true },
+        { name: <AiFillHome />, href: '/', current: true },
         { name: <RiMessage2Fill />, current: false },
         {
             name: <MdAddBox />,
             current: false,
-            action:addPost
+            action: addPost
         },
         { name: <AiTwotoneBell />, current: false },
     ]
@@ -48,7 +66,28 @@ function Navbar() {
         navigate("/login");
     }
 
+    // useEffect(() => {
 
+    //     search()
+
+    // }, [])
+
+    const search = async (e) => {
+        if (e.target.value.length > 0) {
+
+            setSearchModal(true)
+        } else {
+            setSearchModal(false)
+
+        }
+        let searchData = e.target.value
+        console.log(searchData);
+        axios.post(`/searchUsers?searchdata=${searchData}`).then((response) => {
+            console.log(response.data);
+            setSearch(response.data)
+
+        })
+    }
     return (
         <>
 
@@ -81,35 +120,33 @@ function Navbar() {
                                             src={logo}
                                             alt="Your Company"
                                         />
+                                        <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+                                            <input type="text" placeholder='Search' className='rounded-lg p-1 border-2 bg-transparent text-white ' onChange={search} />
+
+
+                                        </div>
                                     </div>
 
-                                    {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                        <button
-                                            type="button"
-                                            className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                        >
-                                            <span className="sr-only">View notifications</span>
-                                            <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                        </button>
 
-
-                                    </div> */}
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4 ">
-                                        {navigation.map((item,index) => (
-                                            <div
+                                        {navigation.map((item, index) => (
+                                            <Link
+                                                to={item.href}
                                                 key={index}
-                                                
+
                                                 className={classNames(
                                                     item.current ? ' text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                     'px-3 py-2 rounded-md font-medium text-2xl'
                                                 )}
-                                                onClick={ item.action }
+                                                onClick={item.action}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
-                                            </div>
+
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
@@ -118,11 +155,21 @@ function Navbar() {
                                     <div>
                                         <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                             <span className="sr-only">Open user menu</span>
-                                            <img
-                                                className="h-8 w-8 rounded-full object-cover"
-                                                src={user}
-                                                alt=""
-                                            />
+                                            {
+                                                User.image ?
+                                                    <img
+                                                        className="h-8 w-8 rounded-full object-cover"
+                                                        src={`/images/${User.image} `}
+                                                        alt=""
+                                                    />
+                                                    :
+                                                    <img
+                                                        className="h-8 w-8 rounded-full object-cover"
+                                                        src={`https://randomuser.me/api/portraits/lego/0.jpg`}
+                                                        alt=""
+                                                    />
+                                            }
+
                                         </Menu.Button>
                                     </div>
                                     <Transition
@@ -197,6 +244,34 @@ function Navbar() {
                     </>
                 )}
             </Disclosure>
+            {searchModal ?
+                <div className='shadow-light bg-gray-300 p-4 w-[25%] rounded-lg absolute right-[20%] z-30  h-max-[200px] top-[4.5rem]'>
+                    {Search.map((item, index) => {
+                        return (
+                            <Link className='flex items-center cursor-pointer hover:bg-white rounded-lg p-3' key={index}
+                                // to="/searchProfile" state={{ user: item }}
+                                to={`${item._id != userDetails.id ? "/searchProfile" :"/userProfile"}`} state={{user:item}}
+                                onClick={() => { setSearchModal(false) }}>
+                                <div className='h-[40px] w-[40px] bg-gray-600 rounded-full mr-3'>
+
+                                    {
+                                        item.image &&
+                                        <img className="h-full w-full object-cover rounded-full" src={`/images/${item.image}`} alt="" />
+                                    }
+                                </div>
+                                <div className='flex flex-col'>
+                                    <p className='font-bold	'>
+                                        {item.UserName}
+                                    </p>
+                                    <p className='underline decoration-dashed italic'>  
+                                        {item.email}
+                                    </p>
+                                </div>
+                            </Link>
+                        )
+                    })
+                    }
+                </div> : null}
 
         </>
     )

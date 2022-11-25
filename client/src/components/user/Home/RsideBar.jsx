@@ -2,7 +2,7 @@ import React from 'react'
 import myPic from '../../../assets/myPic.jpg'
 function RsideBar() {
     return (
-        <div className='bg-[#1f354d] p-5 rounded-lg shadow-light w-full' >
+        <div className='container bg-[#1f354d] p-5 rounded-lg shadow-light w-full' >
             <h1 className='font-semibold text-white'>Suggested For You</h1>
             <div className='flex my-3 pt-3'>
                 <div>

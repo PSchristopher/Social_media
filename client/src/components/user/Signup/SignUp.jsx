@@ -20,7 +20,7 @@ function SignUp() {
     const [UserDetails, setUserDetails] = useState({})
     const [OtpError, setOtpError] = useState('')
     const navigate = useNavigate()
-    
+    const [Resend, setResend] = useState(false)
     // const handleChange = (e) => {
     //     const { name, value } = e.target
     //     setformValues({ ...formValues, [name]: value })
@@ -72,6 +72,10 @@ function SignUp() {
                 console.log(response.data);
                 setUserDetails(response.data.user)
                 setOtpModal(true)
+                setTimeout(() => {
+                    console.log("Delayed for 1 second.");
+                    setResend(true)
+                }, "100000")
 
             }
         })
@@ -97,6 +101,15 @@ function SignUp() {
             })
         }
     }
+    const resendOtp = ()=>{
+        axios.post('/resendOTP',UserDetails).then((response)=>{
+            setResend(!Resend)
+            setTimeout(() => {
+                console.log("Delayed for 1 second.");
+                setResend(true)
+            }, "100000")
+        })
+    }
     return (
         <>
             <div className='loginpage relative'>
@@ -113,11 +126,11 @@ function SignUp() {
                                 <div className='flex flex-col'>
                                     <div className='flex flex-row  '>
                                         <div className='w-1/2 mr-2'>
-                                            <input type="text" name='fname' placeholder='First Name' className='h-12 mb-6  rounded-lg bg-[#182D39] text-[#596C7A] pl-6 w-full'  {...register('fname', { required: 'Required', pattern: { value: /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/, message: 'Enter a Valid First name' } })} />
+                                            <input type="text" name='fname' placeholder='Full Name' className='h-12 mb-6  rounded-lg bg-[#182D39] text-[#596C7A] pl-6 w-full'  {...register('fname', { required: 'Required', pattern: { value: /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/, message: 'Enter a Valid First name' } })} />
                                             <p className='text-red-500 font-[8px] mb-3 pl-3'>{errors.fname?.message}</p>
                                         </div>
                                         <div className='w-1/2'>
-                                            <input type="text" name='lname' placeholder='Last Name' className='h-12 mb-6  rounded-lg bg-[#182D39] text-[#596C7A] pl-6  w-full' {...register('lname', { required: 'Required' })} />
+                                            <input type="text" name='lname' placeholder='User Name' className='h-12 mb-6  rounded-lg bg-[#182D39] text-[#596C7A] pl-6  w-full' {...register('lname', { required: 'Required' , pattern: { value:/^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/, message: 'Enter a Valid User name for example User_s' }  })} />
                                             <p className='text-red-500 font-[8px] mb-3 pl-3'>{errors.lname?.message}</p>
 
                                         </div>
@@ -151,8 +164,15 @@ function SignUp() {
                                                         <span className="font-bold">{UserDetails.email}</span>
 
                                                     </div>
+                                                    <div className=' flex justify-center pt-2'>
+                                                        {
+                                                            Resend ?
+                                                                <button className='flex items-center text-purple-500 hover:text-white hover:bg-purple-500 cursor-pointer font-bold bg-white rounded-lg pl-2 pr-2 ' onClick={resendOtp} >Resend</button>
+                                                                : <Countdown date={Date.now() + 100000} />
 
-                                                    <Countdown date={Date.now() + 100000} />
+                                                        }
+                                                        {/* <Countdown date={Date.now() + 100000} /> */}
+                                                    </div>
                                                     <div id="otp" className="flex flex-row justify-center text-center px-2 mt-5">
                                                         {/* <input className="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="first" maxlength="1" />
                                                         <input className="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="second" maxlength="1" />
@@ -166,7 +186,10 @@ function SignUp() {
 
                                                     <div className="flex justify-center text-center mt-5">
 
-                                                        <button className='flex items-center text-green-500 hover:text-white hover:bg-green-500 cursor-pointer font-bold bg-white rounded-lg pl-2 pr-2 ' onClick={(e) => onVerify(e)}>Verify</button>
+                                                      
+                                                                {/* <button className='flex items-center text-purple-500 hover:text-white hover:bg-purple-500 cursor-pointer font-bold bg-white rounded-lg pl-2 pr-2 ' >Resend</button> */}
+                                                                 <button className='flex items-center text-green-500 hover:text-white hover:bg-green-500 cursor-pointer font-bold bg-white rounded-lg pl-2 pr-2 ' onClick={(e) => onVerify(e)}>Verify</button>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

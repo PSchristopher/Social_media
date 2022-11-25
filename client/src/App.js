@@ -10,6 +10,10 @@ import UserList from './components/admin/AdminHome/UserList';
 import { AppContext } from './Context/Context'
 import { useState } from 'react';
 import Post from './pages/user/Post/Post'
+import UserProfile from './pages/user/Profile/UserProfile';
+import Forgot from './pages/user/Forgot/Forgot';
+import GoOthersProfile from './pages/user/SearchUser/GoOthersProfile';
+import Test from './pages/Test';
 
 function App() {
 
@@ -22,17 +26,17 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route path='/login' element={<Siginin />} />
           <Route path='/register' element={<Signup />} />
+          <Route path='/forgotPassword' element={<Forgot/>} />
+          <Route path='/userProfile' element={<UserProfile/>}/>
+          <Route path='/searchProfile' element={<GoOthersProfile/>}/>
+          <Route path='/test' element={<Test/>}/>
+
+          <Route path='/adminlogin' element={<AdminLogin />} />
+          <Route path='/admin' element={<AdminHome />}>
+            <Route path='/admin/User_list' element={<UserList />} />
+          </Route>
         </Routes>
       </AppContext.Provider>
-
-      <Routes>
-
-        <Route path='/adminlogin' element={<AdminLogin />} />
-        <Route path='/admin' element={<AdminHome />}>
-          <Route path='/admin/User_list' element={<UserList />} />
-        </Route>
-
-      </Routes>
     </>
   );
 }
