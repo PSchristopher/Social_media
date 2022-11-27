@@ -47,6 +47,15 @@ const userSchema = new mongoose.Schema({
     mobile:{
         type:Number,
         default:91
+    },
+    followers:{
+        type:Array,
+        default:[]
+    },
+    following:{
+        type:Array,
+        default:[]
+
     }
 })
 const user = mongoose.model('user', userSchema)

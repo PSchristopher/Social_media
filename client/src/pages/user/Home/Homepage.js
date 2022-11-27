@@ -27,7 +27,7 @@ useEffect(() => {
 }, [])
 
   return (
-    <div>
+    <div className=''>
         <Home/>
     </div>
   )

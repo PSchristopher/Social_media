@@ -1,4 +1,5 @@
 const User = require('../Modal/user')
+const ChatModel = require('../Modal/chatModel')
 const userVerification = require('../Modal/userVerfication')
 const newPost = require('../Modal/post')
 const CommentSchema = require('../Modal/comment')
@@ -154,9 +155,9 @@ module.exports = {
                     if (pass) {
                         // const token = jwt.sign({ user: user.name, id: user._id }, "jwtSecret", { expiresIn: 300 })
                         // res.status(200).json({ msg: false, token: token, auth: true })
-                        const userToken = jwt.sign({ user: userExist.fname, id: userExist._id }, "jwtSecret", { expiresIn: 3000 })
+                        const userToken = jwt.sign({ user: userExist.fullname, id: userExist._id }, "jwtSecret", { expiresIn: 3000 })
 
-                        res.status(200).json({ log: true, token: userToken, User: userExist._id, auth: true })
+                        res.status(200).json({ log: true, token: userToken, User: userExist, auth: true })
                     } else {
                         res.status(200).json({ log: false, message: 'Incorrect Password' })
                     }
@@ -259,7 +260,7 @@ module.exports = {
     getPost: async (req, res) => {
         try {
             let posts = await newPost.find().populate('userId').sort({ _id: -1 })
-       
+
             if (posts) {
                 res.status(200).json({ result: true, feed: posts })
             }
@@ -269,7 +270,6 @@ module.exports = {
     },
 
     getUserPost: async (req, res) => {
-        console.log(req.params.id);
         try {
             let UserPosts = await newPost.find({ userId: req.params.id })
             // console.log("UserPosts");
@@ -291,8 +291,6 @@ module.exports = {
         try {
 
             let getUserDetails = await User.findById(req.params.id)
-            console.log("getUserDetails");
-            console.log(getUserDetails);
             res.status(200).json(getUserDetails)
         } catch (error) {
             res.status(400)
@@ -308,7 +306,7 @@ module.exports = {
             console.log("allUser");
             console.log(allUser);
             console.log("editUser");
-            
+
             if (allUser.UserName == req.body.UserName) {
                 console.log('usernameindu');
                 res.status(200).json({ Update: false, msg: "User name already Exist" })
@@ -316,11 +314,11 @@ module.exports = {
                 if (editUser) {
                     console.log("else");
                     if (req.file) {
-                        
+
                         var file = true
                     } else {
-                       
-                       var file = false
+
+                        var file = false
                     }
                     let edit = await User.updateOne({ _id: req.params.id }, {
                         $set: {
@@ -424,12 +422,47 @@ module.exports = {
     searchUsers: async (req, res) => {
         console.log(req.query.searchdata);
         var q = req.query.searchdata
-        let users = await User.find({ UserName: { $regex: new RegExp(q, 'i') }})
+        let users = await User.find({ UserName: { $regex: new RegExp(q, 'i') } })
         console.log(users);
         res.json(users)
 
     },
 
- 
+    followUser: async (req, res) => {
+        console.log(req.body);
+        try {
+            const user = await User.findById({ _id: req.body.userId })
+            const friendToFollow = await User.findById({ _id: req.body.friendsId })
+            if (!user.following.includes(req.body.friendsId)) {
+                await user.updateOne({ $push: { following: req.body.friendsId } })
+                await friendToFollow.updateOne({ $push: { followers: req.body.userId } })
+                res.status(200).json('Followed')
+            } else {
+                res.status(403).json('You are already following this user')
+            }
+        } catch (error) {
+            console.log(error.message);
+            res.status(500).json(error)
+        }
+    },
+
+    unFollowUser: async (req, res) => {
+        try {
+            console.log(req.body);
+            const user = await User.findById({ _id: req.body.userId })
+            const userToUnfollow = await User.findById({ _id: req.body.friendsId })
+            if (user.following.includes(req.body.friendsId)) {
+                await user.updateOne({ $pull: { following: req.body.friendsId } })
+                await userToUnfollow.updateOne({ $pull: { followers: req.body.userId } })
+                res.status(200).json('Unfollowed')
+            } else {
+                res.status(403).json('you already unfollowed this user')
+            }
+        } catch (error) {
+            res.status(500).json({ message: "something went wrong" })
+        }
+    }
+
+  
 
 }

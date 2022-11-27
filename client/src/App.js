@@ -14,6 +14,7 @@ import UserProfile from './pages/user/Profile/UserProfile';
 import Forgot from './pages/user/Forgot/Forgot';
 import GoOthersProfile from './pages/user/SearchUser/GoOthersProfile';
 import Test from './pages/Test';
+import UserChat from './pages/user/Conversation/UserChat';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/forgotPassword' element={<Forgot/>} />
           <Route path='/userProfile' element={<UserProfile/>}/>
           <Route path='/searchProfile' element={<GoOthersProfile/>}/>
+          <Route path='/Chat' element={<UserChat/>}/>
           <Route path='/test' element={<Test/>}/>
 
           <Route path='/adminlogin' element={<AdminLogin />} />

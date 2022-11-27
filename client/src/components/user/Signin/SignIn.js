@@ -3,10 +3,14 @@ import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import './SignIn.css'
 import axios from '../../../Axios/axios'
+import {useDispatch,useSelector} from 'react-redux'
+import { login } from '../../../Redux/UserSlice';
 
 function SignIn() {
   
   const navigate = useNavigate()
+  const dispatch=useDispatch()
+
   const { register, handleSubmit, formState: { errors } } = useForm()
   const [Error, setError] = useState('')
 
@@ -33,6 +37,9 @@ const userAuthenticeted = () => {
         setError(response.data.message)
       }else{
         localStorage.setItem("Usertoken", response.data.token)
+        localStorage.setItem('User',JSON.stringify(response.data.User))
+        dispatch(login(response.data.User))
+
         navigate('/')
       }
     })

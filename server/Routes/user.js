@@ -21,7 +21,7 @@ router.post('/postComment',UserControl.postComment)
 router.get('/getComments',UserControl.getComments)
 router.post('/searchUsers',UserControl.searchUsers)
 
-
-
+router.put('/followUser',UserControl.followUser)
+router.put('/unfollowUser',UserControl.unFollowUser)
 
 module.exports = router;

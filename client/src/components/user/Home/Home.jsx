@@ -30,7 +30,7 @@ function Home() {
   };
   return (
     <>
-      <div className='bg-[#0F213E] container h-screen '>
+      <div className='bg-[#0F213E] container max-h-screen'>
         <Navbar />
         <div className='flex  max-w-[100%]'>
           <div className='container w-4/12 p-5 pl-20 hidden md:block max-w-[100%] '>

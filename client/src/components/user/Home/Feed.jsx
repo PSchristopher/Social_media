@@ -96,7 +96,7 @@ function Feed() {
                 {
                     feed.map((post, index) => {
                         return (
-                            <div className='bg-[#1f354d] p-2 rounded-lg shadow-light w-full mb-4 max-w-[40rem]' >
+                            <div className='bg-[#1f354d] p-2 rounded-lg shadow-light w-full mb-4 max-w-[40rem] ' >
                                 <div className="flex justify-between">
                                     <div className='flex my-3 pb-3 '>
                                         <div>
@@ -105,7 +105,7 @@ function Feed() {
                                                     post.userId.image ?
                                                         <img src={`/images/${post.userId.image}`} className='rounded-full object-cover w-full h-full ' alt="" />
                                                         :
-                                                        <img src={'https://randomuser.me/api/portraits/lego/0.jpg'} alt="ProfileImage" className="rounded-full object-cover w-full h-full " />
+                                                        <img src={'https://imgs.search.brave.com/d0IIb0RSYo0SCzA8yldT5UCB9IByR7XvhKjLrb6F-Zc/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC53/UnR2T05fOEpLUlFn/aGRST3c1UXZRSGFI/YSZwaWQ9QXBp'} alt="ProfileImage" className="rounded-full object-cover w-full h-full " />
                                                 }
 
                                             </div>

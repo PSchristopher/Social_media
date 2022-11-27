@@ -7,12 +7,13 @@ import { RiMessage2Fill } from "react-icons/ri";
 import { MdAddBox } from "react-icons/md";
 import { AiTwotoneBell } from "react-icons/ai";
 import logo from '../../../assets/logo.png'
-import user from '../../../assets/myPic.jpg'
 import { useNavigate, Link } from 'react-router-dom';
 import { AppContext } from '../../../Context/Context';
 import axios from '../../../Axios/axios';
 import jwtdecode from "jwt-decode"
+import {useDispatch,useSelector} from 'react-redux'
 
+import { logout } from '../../../Redux/UserSlice';
 
 
 
@@ -22,7 +23,10 @@ function classNames(...classes) {
 }
 
 function Navbar() {
+    const dispatch=useDispatch()
+
     const [User, setUser] = useState({})
+
     useEffect(() => {
 
         getUser()
@@ -51,7 +55,7 @@ function Navbar() {
 
     const navigation = [
         { name: <AiFillHome />, href: '/', current: true },
-        { name: <RiMessage2Fill />, current: false },
+        { name: <RiMessage2Fill />,href: '/Chat', current: false },
         {
             name: <MdAddBox />,
             current: false,
@@ -63,6 +67,8 @@ function Navbar() {
     const navigate = useNavigate()
     const logOut = () => {
         localStorage.removeItem('Usertoken');
+        dispatch(logout())
+
         navigate("/login");
     }
 
@@ -81,9 +87,7 @@ function Navbar() {
 
         }
         let searchData = e.target.value
-        console.log(searchData);
         axios.post(`/searchUsers?searchdata=${searchData}`).then((response) => {
-            console.log(response.data);
             setSearch(response.data)
 
         })

@@ -92,7 +92,7 @@ const triggerFileSelectPopup = ()=>inputRef.current.click()
                 {/*body*/}
                 <div className="relative p-6 flex h-[450px] bg-cover border-8  justify-center " style={{ backgroundImage: `url(${Image || 'https://imgs.search.brave.com/wyOMuJf8rNvTW5WUJoisK3bd0u7QBG5182Ov5vPpFbw/rs:fit:1000:667:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE0/ODUyODg3MzQ3NTYt/MGIzMWEwYTMxZDk1/P2l4bGliPXJiLTEu/Mi4xJml4aWQ9ZXlK/aGNIQmZhV1FpT2pF/eU1EZDkmdz0xMDAw/JnE9ODA'})` }}>
                   <div className='flex justify-center items-center '>
-                    <input type="file" title='' name='image' className='w-[100px]' ref={inputRef} style={{ color: `transparent`,display:'none' }} onChange={fileUpload} />
+                    <input type="file" title='' name='image' accept='.jpg' className='w-[100px]' ref={inputRef} style={{ color: `transparent`,display:'none' }} onChange={fileUpload} />
                     <button className='w-[100px] bg-[#0F213E] text-white rounded-lg text-lg' onClick={triggerFileSelectPopup}>Choose</button>
                   </div>
                 </div>

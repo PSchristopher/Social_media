@@ -130,7 +130,7 @@ function Profile() {
 
                     <img src={`/images/${UserDetails.image} `} alt="ProfileImage" className="rounded-full w-60 h-60 " />
                     :
-                    <img src={'https://randomuser.me/api/portraits/lego/0.jpg'} alt="ProfileImage" className="rounded-full w-60 h-60 " />
+                    <img src={'https://imgs.search.brave.com/d0IIb0RSYo0SCzA8yldT5UCB9IByR7XvhKjLrb6F-Zc/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC53/UnR2T05fOEpLUlFn/aGRST3c1UXZRSGFI/YSZwaWQ9QXBp'} alt="ProfileImage" className="rounded-full w-60 h-60 " />
                 }
               </div>
               <div className="flex flex-col gap-2 text-white ">
@@ -235,7 +235,7 @@ function Profile() {
                         <img alt="" src={profile} className={" rounded-full w-32 h-32 items-center"} />
                         <button className=" absolute top-[45%] left-[40%] text-white text-[30px]" ></button>
                       </div> */}
-                        <div className="relative  flex  bg-cover rounded-full w-32 h-32 border-8  justify-center object-cover" style={{ backgroundImage: `url(  ${Image || UserDetails.image || 'https://imgs.search.brave.com/7RoZdgbwxvnACxZN74kJ9Cc7y2r9peTmTq-0bEu7zmE/rs:fit:1200:1024:1/g:ce/aHR0cDovL3d3dy5w/c2RncmFwaGljcy5j/b20vZmlsZS91c2Vy/LWljb24uanBn'} )` }}>
+                        <div className="relative  flex  bg-cover rounded-full w-32 h-32 border-8  justify-center object-cover" style={{ backgroundImage: `url(  ${Image || UserDetails.image || 'https://imgs.search.brave.com/d0IIb0RSYo0SCzA8yldT5UCB9IByR7XvhKjLrb6F-Zc/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC53/UnR2T05fOEpLUlFn/aGRST3c1UXZRSGFI/YSZwaWQ9QXBp'} )` }}>
                           <div className='flex justify-center items-center '>
                             <input type="file" title='' name='image' className='w-[100px]' ref={inputRef} style={{ color: `transparent`, display: 'none' }} onChange={fileUpload} />
                             <button className=' bg-[#0F213E] text-white rounded-lg text-lg' onClick={triggerFileSelectPopup} ><BiEditAlt /></button>

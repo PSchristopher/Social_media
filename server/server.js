@@ -3,6 +3,8 @@ const express = require('express')
 const server =express()
 const userRouter =require('./Routes/user')
 const adminRouter =require('./Routes/admin')
+const chatRouter = require("./Routes/chat")
+const messageRouter = require('./Routes/message')
 const bodyParser =require('body-parser')
 const cors = require('cors')
 const {connectDb}=require('./config/connection')
@@ -14,6 +16,8 @@ server.use(cors())
 /* --------------------------------- routes --------------------------------- */
 server.use('/',userRouter)
 server.use('/admin',adminRouter)
+server.use('/chat',chatRouter)
+server.use('/message',messageRouter)
 
 /* ---------------------------- connect database ---------------------------- */
 
