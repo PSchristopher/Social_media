@@ -24,7 +24,8 @@ function Feed() {
         getPost()
     }, [])
     const getPost = () => {
-        axios.get('/getPost').then((response) => {
+        console.log(userDetails.id);
+        axios.get(`/getPost/${userDetails.id}`,).then((response) => {
 
             if (response.data.result) {
                 console.log(response.data.feed);

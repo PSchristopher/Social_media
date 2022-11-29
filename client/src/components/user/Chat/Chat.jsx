@@ -8,76 +8,77 @@ import { io } from 'socket.io-client'
 
 function Chat() {
 
-    const user = useSelector((state) => state.User)
-    console.log(user);
+  const user = useSelector((state) => state.User)
+  console.log(user);
 
-    const [chats, setChats] = useState([])
-    const [currentChat, setCurrentChat] = useState()
-    const [onlineUsers, setOnlineUsers] = useState([])
-    const [sendMessage, setSendMessage] = useState(null)
-    const [receiveMessage, setReceiveMessage] = useState(null)
-    const socket = useRef()
-
-
-    // sending message to socket server
-    useEffect(() => {
-        if (sendMessage !== null) {
-            socket.current.emit('send-message', sendMessage)
-        }
-    }, [sendMessage]) 
-
-    useEffect(() => {
-        socket.current = io('http://localhost:8800')
-        socket.current.emit('new-user-add', user._id)
-        socket.current.on('get-users', (users) => {
-            setOnlineUsers(users)
-
-        })
-    }, [user])
-
-    // receive message from socket server
-
-    useEffect(() => {
-        socket.current.on('receive-message', (data) => {
-            setReceiveMessage(data)
-        })
+  const [chats, setChats] = useState([])
+  const [currentChat, setCurrentChat] = useState()
+  const [onlineUsers, setOnlineUsers] = useState([])
+  const [sendMessage, setSendMessage] = useState(null)
+  const [receiveMessage, setReceiveMessage] = useState(null)
+  const socket = useRef()
 
 
-    }, [])
-
-    useEffect(() => {
-        const getChats = async () => {
-            try {
-                const { data } = await userChats(user._id)
-                console.log(data);
-                setChats(data)
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getChats()
-
-    }, [user])
-
-    const checkOnlineStatus = (chat) =>{
-        const chatMember = chat.members.find((member)=> member !== user._id)
-    const online = onlineUsers.find((user)=>user.userId === chatMember)
-    return online ? true : false
+  // sending message to socket server
+  useEffect(() => {
+    if (sendMessage !== null) {
+      socket.current.emit('send-message', sendMessage)
     }
+  }, [sendMessage])
+
+  useEffect(() => {
+    socket.current = io('http://localhost:8800')
+    socket.current.emit('new-user-add', user._id)
+    socket.current.on('get-users', (users) => {
+      setOnlineUsers(users)
+
+    })
+  }, [user])
+
+  // receive message from socket server
+
+  useEffect(() => {
+    socket.current.on('receive-message', (data) => {
+      setReceiveMessage(data)
+    })
 
 
-    return (
-        <div className='h-screen'>
-            <Navbar />
-            <div className=''>
-                <div className=''>
-                    <div className="flex justify-center h-full chatscreen p-5">
-                        <section className=" shadow-xl rounded-md w-full lg:w-11/12 lg:mx-auto flex">
-                            {/* <!-- Left section --> */}
-                            <div
-                                className="w-full md:w-3/6 lg:w-3/6 xl:w-3/6 flex flex-col justify-start items-stretch  bg-white bg-opacity-80 rounded-md lg:rounded-none lg:rounded-l-md p-3">
-                                <div className="flex flex-row justify-between items-center mb-4">
-                                    {/* <div className="flex flex-row">
+  }, [])
+
+  useEffect(() => {
+    const getChats = async () => {
+      try {
+        const { data } = await userChats(user._id)
+        console.log(data);
+        setChats(data)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getChats()
+
+  }, [user])
+
+  const checkOnlineStatus = (chat) => {
+    const chatMember = chat.members.find((member) => member !== user._id)
+    const online = onlineUsers.find((user) => user.userId === chatMember)
+    return online ? true : false
+  }
+
+
+  return (
+
+    <div className='h-screen bg-[#0F213E]'>
+      <Navbar />
+      <div className=''>
+        <div className=''>
+          <div className="flex justify-center    h-full chatscreen p-5">
+            <section className=" shadow-xl rounded-md w-full lg:w-11/12 lg:mx-auto flex justify-center">
+              {/* <!-- Left section --> */}
+              <div
+                className="w-full md:w-2/6 lg:w-2/6 xl:w-2/6 flex flex-col justify-start items-stretch  bg-[#314F5F6D] bg-opacity-80 rounded-md lg:rounded-none lg:rounded-l-md p-3">
+                <div className="flex flex-row justify-between items-center mb-4">
+                  {/* <div className="flex flex-row">
               <button
                 className="bg-red-500 text-white rounded-full p-1 mr-2 cursor-pointer h-4 w-4 focus:outline-none focus:ring"
                 aria-label="Close">
@@ -91,49 +92,48 @@ function Chat() {
                 aria-label="Minimize">
               </button>
             </div> */}
-                                    <div className="p-1 rounded-full text-gray-500">
-                                        <button
-                                            className="flex flex-col justify-center items-center p-2 rounded-full focus:ring-2 hover:bg-gray-50 hover:bg-opacity-30 focus:outline-none"
-                                            aria-label="Add">
-                                            <svg className="fill-current h-4 w-4" viewBox="0 0 25 25">
-                                                <path d="M11 11v-11h1v11h11v1h-11v11h-1v-11h-11v-1h11z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="flex-auto flex flex-col">
-                                    <div className="flex-auto flex flex-row">
-                                        <div className="p-1 flex flex-col justify-between items-center">
-                                            <div className="">
-                                                <div className="p-1 flex justify-center items-center text-gray-500 cursor-pointer">
-                                                    <button
-                                                        className="flex flex-col justify-center items-center w-full p-1 rounded-lg hover:bg-gray-50 hover:bg-opacity-30 focus:outline-none focus:ring"
-                                                        aria-label="Hamburger menu">
-                                                        <svg className="fill-current h-5 w-5" viewBox="0 0 20 20">
-                                                            <path
-                                                                d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314
+                  <div className="p-1 rounded-full text-gray-500">
+                    <button
+                      className="flex flex-col justify-center items-center p-2 rounded-full focus:ring-2 hover:bg-gray-50 hover:bg-opacity-30 focus:outline-none"
+                      aria-label="Add">
+                      {/* <svg className="fill-current h-4 w-4" viewBox="0 0 25 25">
+                        <path d="M11 11v-11h1v11h11v1h-11v11h-1v-11h-11v-1h11z" />
+                      </svg> */}
+                    </button>
+                  </div>
+                </div>
+                <div className="flex-auto flex flex-col">
+                  <div className="flex-auto flex flex-row">
+                    <div className="p-1 flex flex-col justify-between items-center">
+                      <div className="">
+                        <div className="p-1 flex justify-center items-center text-gray-500 cursor-pointer">
+                          {/* <button
+                            className="flex flex-col justify-center items-center w-full p-1 rounded-lg hover:bg-gray-50 hover:bg-opacity-30 focus:outline-none focus:ring"
+                            aria-label="Hamburger menu">
+                            <svg className="fill-current h-5 w-5" viewBox="0 0 20 20">
+                              <path
+                                d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314
                           c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743
                           s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314
                           c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                                <ul className="">
-                                                    <li className="my-2 text-gray-900 cursor-pointer">
-                                                        <button
-                                                            className="flex flex-col justify-center items-center w-full p-2 rounded-lg bg-gray-600 bg-opacity-10 focus:outline-none focus:ring relative">
-                                                            <svg className="fill-current h-7 w-7" viewBox="0 0 20 20">
-                                                                <path
-                                                                    d="M17.659,3.681H8.468c-0.211,0-0.383,0.172-0.383,0.383v2.681H2.341c-0.21,0-0.383,0.172-0.383,0.383v6.126c0,0.211,0.172,0.383,0.383,0.383h1.532v2.298c0,0.566,0.554,0.368,0.653,0.27l2.569-2.567h4.437c0.21,0,0.383-0.172,0.383-0.383v-2.681h1.013l2.546,2.567c0.242,0.249,0.652,0.065,0.652-0.27v-2.298h1.533c0.211,0,0.383-0.172,0.383-0.382V4.063C18.042,3.853,17.87,3.681,17.659,3.681 M11.148,12.87H6.937c-0.102,0-0.199,0.04-0.27,0.113l-2.028,2.025v-1.756c0-0.211-0.172-0.383-0.383-0.383H2.724V7.51h5.361v2.68c0,0.21,0.172,0.382,0.383,0.382h2.68V12.87z M17.276,9.807h-1.533c-0.211,0-0.383,0.172-0.383,0.383v1.755L13.356,9.92c-0.07-0.073-0.169-0.113-0.27-0.113H8.851v-5.36h8.425V9.807z">
-                                                                </path>
-                                                            </svg>
-                                                            <p className="text-xs font-semibold">All chats</p>
-                                                            <span
-                                                                className="bg-blue-600 w-4 h-4 text-xs rounded-full text-white font-semibold absolute right-3 top-1">2</span>
-                                                        </button>
-                                                    </li>
-                                                    <li className="my-2 text-gray-500">
+                              </path>
+                            </svg>
+                          </button> */}
+                        </div>
+                        <ul className="">
+                          <li className="my-2 text-gray-900 cursor-pointer">
+                            <button
+                              className="flex flex-col justify-center items-center w-full p-2 rounded-lg bg-gray-600 bg-opacity-10 focus:outline-none focus:ring relative">
+                              <svg className="fill-current h-7 w-7" viewBox="0 0 20 20">
+                                <path
+                                  d="M17.659,3.681H8.468c-0.211,0-0.383,0.172-0.383,0.383v2.681H2.341c-0.21,0-0.383,0.172-0.383,0.383v6.126c0,0.211,0.172,0.383,0.383,0.383h1.532v2.298c0,0.566,0.554,0.368,0.653,0.27l2.569-2.567h4.437c0.21,0,0.383-0.172,0.383-0.383v-2.681h1.013l2.546,2.567c0.242,0.249,0.652,0.065,0.652-0.27v-2.298h1.533c0.211,0,0.383-0.172,0.383-0.382V4.063C18.042,3.853,17.87,3.681,17.659,3.681 M11.148,12.87H6.937c-0.102,0-0.199,0.04-0.27,0.113l-2.028,2.025v-1.756c0-0.211-0.172-0.383-0.383-0.383H2.724V7.51h5.361v2.68c0,0.21,0.172,0.382,0.383,0.382h2.68V12.87z M17.276,9.807h-1.533c-0.211,0-0.383,0.172-0.383,0.383v1.755L13.356,9.92c-0.07-0.073-0.169-0.113-0.27-0.113H8.851v-5.36h8.425V9.807z">
+                                </path>
+                              </svg>
+                              <p className="text-xs font-semibold">All chats</p>
+                              {/* <span className="bg-blue-600 w-4 h-4 text-xs rounded-full text-white font-semibold absolute right-3 top-1">2</span> */}
+                            </button>
+                          </li>
+                          {/* <li className="my-2 text-gray-500">
                                                         <button
                                                             className="flex flex-col justify-center items-center w-full p-2 rounded-lg hover:bg-gray-50 hover:bg-opacity-30 focus:outline-none focus:ring">
                                                             <svg className="fill-current h-7 w-78" viewBox="0 0 20 20">
@@ -143,8 +143,8 @@ function Chat() {
                                                             </svg>
                                                             <p className="text-xs font-semibold">Unread</p>
                                                         </button>
-                                                    </li>
-                                                    {/* <li className="my-2 text-gray-500">
+                                                    </li> */}
+                          {/* <li className="my-2 text-gray-500">
                       <button
                         className="flex flex-col justify-center items-center w-full p-2 rounded-lg hover:bg-gray-50 hover:bg-opacity-30 focus:outline-none focus:ring">
                         <svg className="fill-current h-7 w-7" viewBox="0 0 20 20">
@@ -158,7 +158,7 @@ function Chat() {
                         <p className="text-xs font-semibold">Personal</p>
                       </button>
                     </li> */}
-                                                    {/* <li className="my-2 text-gray-500">
+                          {/* <li className="my-2 text-gray-500">
                       <button
                         className="flex flex-col justify-center items-center w-full p-2 rounded-lg hover:bg-gray-50 hover:bg-opacity-30 focus:outline-none focus:ring">
                         <svg className="fill-current h-7 w-7" viewBox="0 0 20 20">
@@ -176,9 +176,9 @@ function Chat() {
                         <p className="text-xs font-semibold">Edit</p>
                       </button>
                     </li> */}
-                                                </ul>
-                                            </div>
-                                            {/* <ul>
+                        </ul>
+                      </div>
+                      {/* <ul>
                   <li className="my-2 text-gray-500">
                     <button
                       className="flex flex-col justify-center items-center p-2 rounded-lg hover:bg-gray-50 hover:bg-opacity-30 focus:outline-none focus:ring">
@@ -191,24 +191,24 @@ function Chat() {
                     </button>
                   </li>
                 </ul> */}
-                                        </div>
-                                        <div className="w-full p-1">
-                                            <div className="w-full p-1">
-                                                <input type="text" placeholder="Search"
-                                                    className="search-input bg-gray-600 bg-opacity-10 placeholder-gray-500 text-gray-400 text-sm py-1 px-10 rounded-md outline-none w-full focus:outline-none focus:ring" />
-                                            </div>
-                                            <div className="">
-                                                <ul className="min-w-full h-96  overflow-y-scroll overflow-hidden  scrollbar-hide messagelist">
-                                                    {
-                                                        chats.map((chat) => (
-                                                            <div onClick={() => setCurrentChat(chat)}>
-                                                                <Converstion data={chat} currentUserId={user._id} online={checkOnlineStatus(chat)}/>
-                                                            </div>
-                                                        )
-                                                        )
-                                                    }
+                    </div>
+                    <div className="w-full p-1">
+                      <div className="w-full p-1">
+                        <input type="text" placeholder="Search"
+                          className="search-input bg-gray-600 bg-opacity-10 placeholder-gray-500 text-gray-400 text-sm py-1 px-10 rounded-md outline-none w-full focus:outline-none focus:ring" />
+                      </div>
+                      <div className="">
+                        <ul className="min-w-full h-96  overflow-y-scroll overflow-hidden  scrollbar-hide messagelist">
+                          {
+                            chats.map((chat) => (
+                              <div onClick={() => setCurrentChat(chat)}>
+                                <Converstion data={chat} currentUserId={user._id} online={checkOnlineStatus(chat)} />
+                              </div>
+                            )
+                            )
+                          }
 
-                                                    {/* <li className="my-2 p-2 flex flex-row cursor-pointer rounded-lg hover:bg-gray-50 hover:bg-opacity-50">
+                          {/* <li className="my-2 p-2 flex flex-row cursor-pointer rounded-lg hover:bg-gray-50 hover:bg-opacity-50">
                                                         <img
                                                             src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-997145684-1547233351.jpg?crop=1xw:1xh;center,top&resize=480:*"
                                                             className="h-12 w-12 rounded-full mr-4" alt="" />
@@ -234,11 +234,11 @@ function Chat() {
                                                         </div>
                                                     </li> */}
 
-                                                    {/* latest my edits */}
+                          {/* latest my edits */}
 
 
 
-                                                    {/* <li className="my-2 p-2 flex flex-row bg-blue-500 rounded-lg cursor-pointer">
+                          {/* <li className="my-2 p-2 flex flex-row bg-blue-500 rounded-lg cursor-pointer">
                                                         <img className="w-12 h-12 mr-4 rounded-full"
                                                             src="https://www.statnews.com/wp-content/uploads/2018/01/AdobeStock_107381486-645x645.jpeg"
                                                             alt="" />
@@ -276,10 +276,10 @@ function Chat() {
                                                         </div>
                                                     </li> */}
 
-                                                    {/* latest my edits */}
+                          {/* latest my edits */}
 
 
-                                                    {/* <li
+                          {/* <li
                       className="my-2 p-2 flex flex-row cursor-pointer rounded-lg hover:bg-gray-50 hover:bg-opacity-50">
                       <img className="w-12 h-12 mr-4 rounded-full"
                         src="https://www.telegraph.co.uk/multimedia/archive/03249/archetypal-female-_3249633c.jpg"
@@ -303,7 +303,7 @@ function Chat() {
                         </div>
                       </div>
                     </li> */}
-                                                    {/* <li
+                          {/* <li
                       className="my-2 p-2 flex flex-row cursor-pointer rounded-lg hover:bg-gray-50 hover:bg-opacity-50">
                       <img className="w-12 h-12 mr-4 rounded-full"
                         src="https://www.telegraph.co.uk/multimedia/archive/03249/archetypal-female-_3249633c.jpg"
@@ -329,10 +329,10 @@ function Chat() {
                     </li> */}
 
 
-                                                    {/* latest my edits */}
+                          {/* latest my edits */}
 
 
-                                                    {/* <li className="my-2 p-2 flex flex-row cursor-pointer rounded-lg hover:bg-gray-50 hover:bg-opacity-50">
+                          {/* <li className="my-2 p-2 flex flex-row cursor-pointer rounded-lg hover:bg-gray-50 hover:bg-opacity-50">
                                                         <img className="w-12 h-12 mr-4 rounded-full"
                                                             src="https://www.telegraph.co.uk/multimedia/archive/03249/archetypal-female-_3249633c.jpg"
                                                             alt="" />
@@ -399,21 +399,21 @@ function Chat() {
                                                         </div>
                                                     </li> */}
 
-                                                    {/* latest my edits */}
+                          {/* latest my edits */}
 
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {/*  <!-- Middle section --> */}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/*  <!-- Middle section --> */}
 
-                            <ChatBox chat={currentChat} currentUser={user._id} setSendMessage={setSendMessage} receiveMessage={receiveMessage} />
+              <ChatBox chat={currentChat} currentUser={user._id} setSendMessage={setSendMessage} receiveMessage={receiveMessage} />
 
 
-                            {/*<!-- Right section --> */}
-                            {/* <div className="hidden w-2/6 xl:block bg-white rounded-r-md p-5 overflow-y-auto">
+              {/*<!-- Right section --> */}
+              {/* <div className="hidden w-2/6 xl:block bg-white rounded-r-md p-5 overflow-y-auto">
           <header className="flex flex-row justify-end items-center">
             <button type="button"
               className="p-2 ml-2 text-gray-400 rounded-full hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring">
@@ -424,7 +424,7 @@ function Chat() {
               </svg>
             </button>
           </header> */}
-                            {/* <main>
+              {/* <main>
             <div className="flex flex-col justify-center items-center my-4">
               <img
                 src="https://t.aimg.sk/magaziny/Ts0fWXOKR12frPTjZ3a8UA~Prav-burger-dom-ca-buchta.png?t=LzB4MzU6NTg2eDM2NS85MjB4NzYwL3NtYXJ0L2ZpbHRlcnM6Zm9ybWF0KGpwZWcp&h=aSkfJNypYaRvL4kRNsFH8g&e=2145916800&v=5"
@@ -549,14 +549,14 @@ function Chat() {
               </ul>
             </div>
           </main> */}
-                            {/*
+              {/*
         </div> */}
-                        </section>
-                    </div>
-                </div>
-            </div>
+            </section>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Chat

@@ -112,6 +112,8 @@ module.exports = {
                 }
             }
         } catch (error) {
+            res.status(500).json(error)
+
             console.log(error.message);
         }
     },
@@ -167,6 +169,8 @@ module.exports = {
             }
 
         } catch (error) {
+            res.status(500).json(error)
+
             console.log(error);
         }
     },
@@ -253,18 +257,31 @@ module.exports = {
                 res.status(200).json({ status: false })
             }
         } catch (error) {
+            res.status(500).json(error)
+
             console.log(error);
         }
     },
 
     getPost: async (req, res) => {
-        try {
-            let posts = await newPost.find().populate('userId').sort({ _id: -1 })
+        // try {
+        //     let posts = await newPost.find().populate('userId').sort({ _id: -1 })
 
-            if (posts) {
-                res.status(200).json({ result: true, feed: posts })
-            }
+        try {
+            let user = await User.findById(req.params.id)
+            const myPost = await newPost.find({ userId: req.params.id }).populate('userId').sort({ Created: -1 })
+            const followingPosts = await Promise.all(user.following.map((id) => {
+                return newPost.find({ userId: id }).populate('userId').sort({ Created: -1 })
+            }))
+            console.log(myPost.concat(...followingPosts), "7uygtfrdertfyvgbuhnjihbugyftrde");
+            res.status(200).json({ result: true, feed: myPost.concat(...followingPosts) })
+
+            // if (posts) {
+            //     res.status(200).json({ result: true, feed: posts })
+            // }
         } catch (error) {
+            res.status(500).json(error)
+
             console.log(error);
         }
     },
@@ -282,6 +299,8 @@ module.exports = {
             }
 
         } catch (error) {
+            res.status(500).json(error)
+
             console.log(error);
         }
 
@@ -293,6 +312,8 @@ module.exports = {
             let getUserDetails = await User.findById(req.params.id)
             res.status(200).json(getUserDetails)
         } catch (error) {
+            res.status(500).json(error)
+
             res.status(400)
         }
     },
@@ -302,14 +323,24 @@ module.exports = {
             console.log('try');
 
             let editUser = await User.findById(req.params.id)
+            // let allUser = await User.find({ _id: { $nin: req.params.id } })
             let allUser = await User.find({ _id: { $nin: req.params.id } })
-            console.log("allUser");
-            console.log(allUser);
-            console.log("editUser");
+            // let username = await allUser.find({ UserName: req.body.UserName })
+            let userNameExists = allUser.map((user) => {
+                console.log(user.UserName);
+                if (user.UserName == req.body.UserName) {
+                    return (
+                        false
+                    )
+                }
+            })
 
-            if (allUser.UserName == req.body.UserName) {
+            if (userNameExists.includes(false)) {
                 console.log('usernameindu');
                 res.status(200).json({ Update: false, msg: "User name already Exist" })
+                // if (allUser.UserName === req.body.UserName) {
+                //     console.log('usernameindu');
+                //     res.status(200).json({ Update: false, msg: "User name already Exist" })
             } else {
                 if (editUser) {
                     console.log("else");
@@ -337,12 +368,12 @@ module.exports = {
                     }
                 } else {
                     console.log("kerilla");
-                    res.status(400).json("something went wrong")
+                    res.status(404).json("something went wrong")
                 }
 
             }
         } catch (error) {
-            // res.status(500).json(error)
+            res.status(500).json(error)
             console.log("error");
             console.log(error.message);
         }
@@ -366,6 +397,8 @@ module.exports = {
             }
 
         } catch (error) {
+            res.status(500).json(error)
+
             console.log(error);
         }
     },
@@ -463,6 +496,6 @@ module.exports = {
         }
     }
 
-  
+
 
 }

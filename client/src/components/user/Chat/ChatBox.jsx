@@ -90,7 +90,7 @@ function ChatBox({ chat, currentUser, setSendMessage, receiveMessage }) {
         <>
             {chat ? (
                 <div
-                    className="hidden w-3/6 bg-white h-full md:flex flex-col justify-start items-stretch border-r-2 border-l-2 border-gray-100 lg:rounded-r-md xl:rounded-none">
+                    className="hidden w-3/6 bg-[#314F5F6D] h-full md:flex flex-col justify-start items-stretch  ml-8 lg:rounded-r-md xl:rounded-none">
                     {/*<!-- Header with name --> */}
                     <div
                         className="flex flex-row items-center justify-between px-3 py-2 bg-gray-50 bg-opacity-40 border-b-2 border-gray-100">
@@ -206,19 +206,19 @@ function ChatBox({ chat, currentUser, setSendMessage, receiveMessage }) {
                     {/*<!-- Input for writing a messages --> */}
                     <div className="flex flex-row justify-between items-center p-3">
 
-                        <div className="flex-1 px-3">
+                        <div className="flex-1 px-3 ">
 
 
                             <InputEmoji
                                 value={newMessage}
-                                onChange={handleChange} />
+                                onChange={handleChange}  />
                         </div>
                         <div className="flex flex-row">
 
 
-                            <button disabled={!newMessage} onClick={handleSend}>
+                            <button disabled={!newMessage} onClick={handleSend} >
                                 <svg
-                                    class='w-5 h-5 text-gray-500 origin-center transform rotate-90'
+                                    class='w-5 h-5 text-white origin-center transform rotate-90'
                                     xmlns='http://www.w3.org/2000/svg'
                                     viewBox='0 0 20 20'
                                     fill='currentColor'
@@ -229,15 +229,15 @@ function ChatBox({ chat, currentUser, setSendMessage, receiveMessage }) {
                         </div>
                     </div>
                 </div>
-            ) :
-                (
-                    <div className='flex items-center'>
-                        <div className=' justify-center'>
-                            NO Conversation  Tap on a chat to start a Conversation
-                        </div>
-                        
-                    </div>
-                )}
+                    ) :
+                        (
+                            <div className='flex items-center '>
+                                <div className=' justify-center text-white'>
+                                    NO Conversation  Tap on a chat to start a Conversation
+                                </div>
+                                
+                            </div>
+                        )}
 
 
         </>

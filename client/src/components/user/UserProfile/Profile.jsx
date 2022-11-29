@@ -6,8 +6,8 @@ import jwtdecode from "jwt-decode"
 import axios from '../../../Axios/axios'
 
 import Navbar from '../../../components/user/Home/Navbar'
-import { BsFillHeartFill, BsFillShareFill } from 'react-icons/bs'
-import { FaRegCommentDots, FaUserCircle } from 'react-icons/fa'
+// import { BsFillHeartFill, BsFillShareFill } from 'react-icons/bs'
+import { IoEye } from 'react-icons/io5'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Profile() {
@@ -29,11 +29,17 @@ function Profile() {
     UserName: '', Fullname: '', phone: '', about: '',
     image: ''
   })
+  const [postView, setpostView] = useState(false)
+
+  // const [postView, setpostView] = useState(true);
+
+
+
   useEffect(() => {
     getUser()
     getUserPost()
 
-  }, [])
+  }, [EditProfileModal])
   const handleChange = (e) => {
     setpatternErr({})
     const { name, value } = e.target
@@ -46,6 +52,7 @@ function Profile() {
   }
 
   const getUser = async () => {
+
     await axios.get(`/getUserDtails/${userDetails.id}`).then((response) => {
       console.log("response");
       console.log(response.data);
@@ -98,10 +105,10 @@ function Profile() {
       formData.UserId = UserDetails._id
       console.log(userDetails.id);
       axios.post(`/editProfile/${userDetails.id}`, formData).then((response) => {
-        if (response.data.staus) {
+        if (!response.data.Update) {
           setpatternErr({ Username: response.data.msg })
         } else {
-          toast("WOrking On");
+          toast("Working On");
           setEditProfileModal(false)
         }
       })
@@ -109,6 +116,9 @@ function Profile() {
 
   }
 
+  const viewDetails = async (postId) => {
+    setpostView(!postView)
+  }
 
   return (
 
@@ -119,7 +129,7 @@ function Profile() {
 
         <div className='w-full mt-10 sm:mt-16 sm:mx-4 md:mt-0 md:w-5/6  lg:w-3/4 lg:flex lg:justify-end  bg-[#1f354d] rounded-lg '>
 
-          <div className="ProfileCard lg:container">
+          <div className="ProfileCard lg:container  ">
             <div className="flex  justify-between p-7 pl-[50px]">
 
 
@@ -134,8 +144,8 @@ function Profile() {
                 }
               </div>
               <div className="flex flex-col gap-2 text-white ">
-                
-                <h1 className="text-2xl font-bold" style={{"font-family": "Times New Roman"}}>{UserDetails.UserName}</h1>
+
+                <h1 className="text-2xl font-bold" style={{ "font-family": "Times New Roman" }}>{UserDetails.UserName}</h1>
                 <h1>Name :{UserDetails.fullname}</h1>
                 <h1>Email :{UserDetails.email}</h1>
                 <h1>Mobile :{UserDetails.mobile}</h1>
@@ -152,17 +162,17 @@ function Profile() {
               <hr />
               <div >
                 <div className="follow">
-                  <span className="text-xl font-semibold  text-gray-300">120</span>
+                  <span className="text-xl font-semibold  text-gray-300">{UserDetails?.followers?.length}</span>
                   <span className="font-medium text-white">followers</span>
                 </div>
                 <div className="follow">
-                  <span className="text-xl font-semibold text-gray-300">8</span>
+                  <span className="text-xl font-semibold text-gray-300">{UserPosts?.length}</span>
                   <span className="font-medium  text-gray-300">posts</span>
                 </div>
                 {/* for profilepage */}
 
                 <div className="follow">
-                  <span className="text-xl font-semibold  text-gray-300">78</span>
+                  <span className="text-xl font-semibold  text-gray-300">{UserDetails?.following?.length}</span>
                   <span className="font-medium  text-gray-300">following</span>
                 </div>
 
@@ -180,7 +190,7 @@ function Profile() {
               {/* profile feeds */}
 
 
-              <div className="grid grid-cols-1 mx-auto sm:grid-cols-3 px-6 p-4 gap-4 ">
+              <div className="grid grid-cols-1 mx-auto sm:grid-cols-3 px-6 p-4 gap-4 relative ">
                 {
                   UserPosts.map((UserPosts, index) => {
                     return (
@@ -189,18 +199,141 @@ function Profile() {
 
                           <img src={`/images/${UserPosts.image}`} alt="POST" className='rounded-lg h-80 border-4 w-full  object-cover' />
                         </div>
-                        <div className='hide absolute top-[50%] left-[30%]  '>
-                          <button className=' bg-[#274055] rounded-lg text-white p-3 m-3 ' ><BsFillHeartFill className='flex text-white  items-center' /></button>
-                          <button className=' bg-[#274055] rounded-lg text-white p-3 m-3 ' ><FaRegCommentDots className='flex text-white  items-center' /></button>
-                          <button className=' bg-[#274055] rounded-lg text-white p-3 m-3 ' ><BsFillShareFill className='flex text-white  items-center' /></button>
+                        <div className='hide absolute top-[40%] left-[40%]  '>
+                          <button className=' rounded-lg text-white p-3 m-3 ' onClick={() => viewDetails(UserPosts._id)} ><IoEye className='flex text-white  items-center' /></button>
+                          {/* <button className=' bg-[#274055] rounded-lg text-white p-3 m-3 ' ><FaRegCommentDots className='flex text-white  items-center' /></button> */}
+                          {/* <button className=' bg-[#274055] rounded-lg text-white p-3 m-3 ' ><BsFillShareFill className='flex text-white  items-center' /></button> */}
                         </div>
                       </div>
                     )
                   })
                 }
+
+
+                {
+
+                  postView ?
+
+                    <div className="bg-transparent  absolute">
+                      <div className=" ">
+
+                        <div
+                          className={`${postView ? "" : "hidden"
+                            } lg:max-w-[1080px] md:max-w-[744px] max-w-[375px] w-full mx-auto bg-white lg:px-[109px] md:px-12 px-4  relative`}
+                        >
+                          <div>
+                            <svg
+                              onClick={() => setpostView(false)}
+                              className="cursor-pointer absolute right-4 top-4 z-10"
+                              width={24}
+                              height={24}
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M7.28033 6.21967C6.98744 5.92678 6.51256 5.92678 6.21967 6.21967C5.92678 6.51256 5.92678 6.98744 6.21967 7.28033L10.9393 12L6.21967 16.7197C5.92678 17.0126 5.92678 17.4874 6.21967 17.7803C6.51256 18.0732 6.98744 18.0732 7.28033 17.7803L12 13.0607L16.7197 17.7803C17.0126 18.0732 17.4874 18.0732 17.7803 17.7803C18.0732 17.4874 18.0732 17.0126 17.7803 16.7197L13.0607 12L17.7803 7.28033C18.0732 6.98744 18.0732 6.51256 17.7803 6.21967C17.4874 5.92678 17.0126 5.92678 16.7197 6.21967L12 10.9393L7.28033 6.21967Z"
+                                fill="#373737"
+                              />
+                            </svg>
+                            <div className="flex lg:flex-row md:flex-col-reverse flex-col-reverse items-center gap-8">
+                              <div className="w-full">
+                                <img
+                                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/636363636.png"
+                                  alt="girl"
+                                  className="lg:block md:hidden hidden"
+                                />
+                                
+                              </div>
+                              <div className="w-full">
+                                <p className="text-2xl font-semibold text-gray-800">
+                                  Before leaving
+                                </p>
+                                <p className="text-base text-gray-600 mt-4">
+                                  We’d love to know what you think about our dope stuff
+                                </p>
+                                <div>
+                                  <p className="text-lg font-medium text-gray-800 mt-10">
+                                    What could we do better?
+                                  </p>
+                                  <div className="md:flex block xl:gap-6 lg:gap-3 gap-6 items-center">
+                                    <div className="flex xl:gap-4 lg:gap-2 gap-4 xl:items-center lg:items-start items-center pt-5">
+                                      <input
+                                        type="checkbox"
+                                        className="h-5 w-5 cursor-pointer accent-gray-800 flex-shrink-0 bg-gray-100"
+                                      />
+                                      <p className="xl:text-base lg:text-sm text-base text-gray-600">
+                                        Add more products to our catalog
+                                      </p>
+                                    </div>
+                                    <div className="flex xl:gap-4 lg:gap-2 gap-4 xl:items-center lg:items-start items-center pt-5">
+                                      <input
+                                        type="checkbox"
+                                        className="h-5 w-5 cursor-pointer accent-gray-800 flex-shrink-0"
+                                      />
+                                      <p className="xl:text-base lg:text-sm text-base text-gray-600">
+                                        Offer lower priced items
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="md:flex block xl:gap-6 lg:gap-3 gap-6 items-center">
+                                    <div className="flex xl:gap-4 lg:gap-2 gap-4 xl:items-center lg:items-start items-center pt-5">
+                                      <input
+                                        type="checkbox"
+                                        className="h-5 w-5 cursor-pointer accent-gray-800 flex-shrink-0"
+                                      />
+                                      <p className="xl:text-base lg:text-sm text-base text-gray-600">
+                                        Offer financing options
+                                      </p>
+                                    </div>
+                                    <div className="flex xl:gap-4 lg:gap-2 gap-4 xl:items-center lg:items-start items-center pt-5">
+                                      <input
+                                        type="checkbox"
+                                        className="h-5 w-5 cursor-pointer accent-gray-800 flex-shrink-0"
+                                      />
+                                      <p className="xl:text-base lg:text-sm text-base text-gray-600">
+                                        Add more shipping options
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="flex xl:gap-4 lg:gap-2 gap-4 xl:items-center lg:items-start items-center pt-5">
+                                    <input
+                                      type="checkbox"
+                                      className="h-5 w-5 cursor-pointer accent-gray-800 flex-shrink-0"
+                                    />
+                                    <p className="xl:text-base lg:text-sm text-base text-gray-600">
+                                      Others
+                                    </p>
+                                  </div>
+                                </div>
+                                <div className="mt-10">
+                                  <p className="text-lg font-medium text-gray-800">
+                                    Any Suggestions?
+                                  </p>
+                                  <textarea
+                                    className="border border-gray-300 focus:outline-none px-3 w-full h-[104px] mt-6 resize-none p-2"
+                                    defaultValue={""}
+                                  />
+                                  <button className="bg-gray-800 hover:bg-gray-700 transition duration-300 ease-out lg:max-w-[296px] w-full text-white py-3 font-medium text-base mt-6">
+                                    Submit
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    : ''
+
+                }
               </div>
 
             </div>
+
           </div>
 
           {EditProfileModal ? (
@@ -237,7 +370,7 @@ function Profile() {
                       </div> */}
                         <div className="relative  flex  bg-cover rounded-full w-32 h-32 border-8  justify-center object-cover" style={{ backgroundImage: `url(  ${Image || UserDetails.image || 'https://imgs.search.brave.com/d0IIb0RSYo0SCzA8yldT5UCB9IByR7XvhKjLrb6F-Zc/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC53/UnR2T05fOEpLUlFn/aGRST3c1UXZRSGFI/YSZwaWQ9QXBp'} )` }}>
                           <div className='flex justify-center items-center '>
-                            <input type="file" title='' name='image' className='w-[100px]' ref={inputRef} style={{ color: `transparent`, display: 'none' }} onChange={fileUpload} />
+                            <input type="file" title='' name='image' accept=".jpg" className='w-[100px]' ref={inputRef} style={{ color: `transparent`, display: 'none' }} onChange={fileUpload} />
                             <button className=' bg-[#0F213E] text-white rounded-lg text-lg' onClick={triggerFileSelectPopup} ><BiEditAlt /></button>
                           </div>
                         </div>
@@ -301,6 +434,11 @@ function Profile() {
             pauseOnHover
             theme="dark"
           />
+
+
+
+
+
         </div>
       </div>
 
