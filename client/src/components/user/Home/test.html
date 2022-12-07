@@ -1,0 +1,199 @@
+<div className='min-h-screen h-full bg-[#0F213E] '>
+    <Navbar />
+      <div className="bg-[#0F213E] flex justify-center pt-6">
+
+
+        <div className='w-full mt-10 sm:mt-16 sm:mx-4 md:mt-0 md:w-5/6  lg:w-3/4 lg:flex lg:justify-end  bg-[#1f354d] rounded-lg '>
+
+          <div className="ProfileCard lg:container  ">
+            <div className="flex  justify-between p-7 pl-[50px]">
+
+
+              <div className="">
+                {
+                  UserDetails.image ?
+
+                    <img src={`/images/${UserDetails.image} `} alt="ProfileImage" className="rounded-full w-60 h-60 " />
+                    :
+                    <img src={'https://imgs.search.brave.com/d0IIb0RSYo0SCzA8yldT5UCB9IByR7XvhKjLrb6F-Zc/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC53/UnR2T05fOEpLUlFn/aGRST3c1UXZRSGFI/YSZwaWQ9QXBp'} alt="ProfileImage" className="rounded-full w-60 h-60 " />
+                }
+              </div>
+              <div className="flex flex-col gap-2 text-white ">
+
+                <h1 className="text-2xl font-bold" style={{ "fontFamily": "Times New Roman" }}>{UserDetails.UserName}</h1>
+                <h1>Name :{UserDetails.fullname}</h1>
+                <h1>Email :{UserDetails.email}</h1>
+                <h1>Mobile :{UserDetails.mobile}</h1>
+                <h1>About :{UserDetails.about}</h1>
+              </div>
+              <div className=" ">
+                <button type="button" className=" text-blue-600 hover:text-white   hover:bg-gray-700  focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" onClick={() => setEditProfileModal(!EditProfileModal)} >Edit Profile</button>
+              </div>
+            </div>
+           
+            <div className="followStatus">
+              <hr />
+              <div >
+                <div className="follow">
+                  <span className="text-xl font-semibold  text-gray-300">{UserDetails?.followers?.length}</span>
+                  <span className="font-medium text-white">followers</span>
+                </div>
+                <div className="follow">
+                  <span className="text-xl font-semibold text-gray-300">{UserPosts?.length}</span>
+                  <span className="font-medium  text-gray-300">posts</span>
+                </div>
+
+                <div className="follow">
+                  <span className="text-xl font-semibold  text-gray-300">{UserDetails?.following?.length}</span>
+                  <span className="font-medium  text-gray-300">following</span>
+                </div>
+
+              </div>
+              <hr />
+            </div>
+
+            <div className="bg-[#1f354d]">
+
+
+              
+
+
+              <div className=" grid grid-cols-1 mx-auto sm:grid-cols-3 min-h-[300px] px-6 p-4 gap-4 relative ">
+                {
+
+                  UserPosts.map((UserPosts, index) => {
+                    return (
+                      <div className='relative' >
+                        <div className='myDIV'>
+                          
+                          
+                              <img src={ `/images/${UserPosts.image}`} alt="POST" className='rounded-lg h-80 border-4 w-full  object-cover' />
+                              
+                          
+                        </div>
+                        <div className='hide absolute top-[40%] left-[40%]  '>
+                          <button className=' rounded-lg text-white p-3 m-3 ' onClick={() => viewDetails(UserPosts._id)} ><IoEye className='flex text-white  items-center' /></button>
+                          {/* <button className=' bg-[#274055] rounded-lg text-white p-3 m-3 ' ><FaRegCommentDots className='flex text-white  items-center' /></button> */}
+                          {/* <button className=' bg-[#274055] rounded-lg text-white p-3 m-3 ' ><BsFillShareFill className='flex text-white  items-center' /></button> */}
+                        </div>
+                      </div>
+                    )
+                  })
+
+
+                }
+
+
+                
+              </div>
+
+            </div>
+
+          </div>
+
+          {EditProfileModal ? (
+            <>
+              <div
+                className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+              >
+                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                  <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                    {/header/}
+                    <form onSubmit={editChanges}>
+                      <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+
+
+                        <h3 className="  text-3xl font-semibold justify-center">
+                          Edit Your Profile
+                        </h3>
+
+                        <button
+                          className="p-1 ml-auto bg-transparent border-0 text-black  float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                          onClick={() => setEditProfileModal(false)}
+                        >
+                          <span className="bg-transparent text-black  h-6 w-6 text-2xl block outline-none focus:outline-none">
+                            ×
+                          </span>
+                        </button>
+                      </div>
+                      {/body/}
+                      <div className="flex relative p-6 flex-col w-[600px] gap-3 items-center bg-slate-600">
+                        {/* <div className=" relative abcd">
+                        <img alt="" src={profile} className={" rounded-full w-32 h-32 items-center"} />
+                        <button className=" absolute top-[45%] left-[40%] text-white text-[30px]" ></button>
+                      </div> */}
+                        <div className="relative  flex  bg-cover rounded-full w-32 h-32 border-8  justify-center object-cover" style={{ backgroundImage: `url(  ${Image || UserDetails.image || 'https://imgs.search.brave.com/d0IIb0RSYo0SCzA8yldT5UCB9IByR7XvhKjLrb6F-Zc/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC53/UnR2T05fOEpLUlFn/aGRST3c1UXZRSGFI/YSZwaWQ9QXBp'} )` }}>
+                          <div className='flex justify-center items-center '>
+                            <input type="file" title='' name='image' accept=".jpg" className='w-[100px]' ref={inputRef} style={{ color: `transparent`, display: 'none' }} onChange={fileUpload} />
+                            <button className=' bg-[#0F213E] text-white rounded-lg text-lg' onClick={triggerFileSelectPopup} ><BiEditAlt /></button>
+                          </div>
+                        </div>
+                        <div className="flex  gap-2 w-full">
+                          <div>
+                            <label htmlFor="Fullname">Full Name
+                              <input type="text" name="Fullname" className="bg-white rounded-lg  w-full text-black  p-1 pl-3" placeholder={UserDetails.fullname} onChange={handleChange} />
+                            </label>
+                            <p className="text-red-500">{patternErr.Fullname}</p>
+                          </div>
+
+                          <div>
+                            <label htmlFor="UserName">User Name
+                              <input type="text" name="UserName" className="bg-white rounded-lg   w-full text-black p-1 pl-3" placeholder={UserDetails.UserName} onChange={handleChange} />
+                            </label>
+                            <p className="text-red-500">{patternErr.Username}</p>
+                          </div>
+
+
+                        </div>
+                        <div className="w-full ">
+                          <label htmlFor="phone">Mobile
+                            <input type="number" name="phone" className="bg-white rounded-lg  w-full  text-black p-1 pl-3" placeholder={UserDetails.phone ? UserDetails.phone : "Mobile"} onChange={handleChange} />
+                            <p className="text-red-500">{patternErr.phone}</p>
+                          </label>
+                        </div>
+                        <div className="w-full ">
+                          <label htmlFor="about">About
+                            <input type="text" name="about" className="bg-white rounded-lg  w-full text-black  p-1 pl-3" placeholder={UserDetails.about ? UserDetails.phone : "About"} onChange={handleChange} />
+                          </label>
+                        </div>
+                      </div>
+                      {/footer/}
+                      <div className="flex items-center justify-center bg-slate-600 p-6 border-t border-solid border-slate-200 rounded-b">
+
+                        <button
+                          className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                          type="submit"
+
+                        >
+                          Save Changes
+                        </button>
+
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+            </>
+          ) : null}
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
+
+
+
+
+
+        </div>
+      </div>
+
+    </div>

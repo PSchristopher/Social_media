@@ -12,7 +12,11 @@ const newPostSchema = new mongoose.Schema({
     },
     Likes: Array,
     description: String,
-    deletedStatus: {
+    reporterID: {
+        type: Array,
+        default: []
+    },
+    reportdedStatus: {
         type: Boolean,
         default: false
     },

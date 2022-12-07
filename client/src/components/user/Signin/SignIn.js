@@ -49,7 +49,7 @@ const userAuthenticeted = () => {
     <div className='loginpage relative'>
       <div className='bg'>
         <div className='grad flex items-center  absolute top-0 left-0'>
-          <div className=' md:w-[40%] p-7 md:ml-[3rem]'>
+          <div className=' md:w-[35%] p-7 md:ml-[3rem]'>
             <h3 className='text-white text-lg pb-4 '>START  FOR  FREE</h3>
             <h1 className='text-white text-5xl'>Login To
               Your Account <span className='text-blue-600'>.</span></h1>

@@ -1,20 +1,27 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Feed from './Feed'
 import LsideBar from './LsideBar'
 import Navbar from './Navbar'
 import RsideBar from './RsideBar'
 import Stories from './Stories'
+import SmallNavbar from './SmallNavbar'
 import axios from '../../../Axios/axios'
+import { io } from 'socket.io-client'
+import { useSelector } from 'react-redux'
+
 function Home() {
 
 
   const navigate = useNavigate()
+  
 
 
   useEffect(() => {
     userAuthenticeted()
   }, [])
+
+
 
   const userAuthenticeted = () => {
     axios.get("/isUserAuth", {
@@ -30,20 +37,24 @@ function Home() {
   };
   return (
     <>
-      <div className='bg-[#0F213E] container max-h-screen'>
+      <div className='bg-[#0F213E] container max-h-screen min-h-screen  '>
         <Navbar />
-        <div className='flex  max-w-[100%]'>
-          <div className='container w-4/12 p-5 pl-20 hidden md:block max-w-[100%] '>
-            <LsideBar />
-          </div>
-          <div className='container md:w-7/12 p-5  flex-row justify-center max-w-[100%]'>
-            <Stories />
-            <Feed />
-          </div>
-          <div className='container w-5/12 p-5 pr-20 hidden md:block max-w-[100%]  ' >
-            <RsideBar />
+        <div className='flex justify-center'>
+
+          <div className='flex  w-10/12 '>
+            <div className='container w-3/12 p-2  hidden md:block max-w-[100%] '>
+              <LsideBar />
+            </div>
+            <div className='container md:w-7/12 p-2  flex-row justify-center max-w-[100%]'>
+              {/* <Stories /> */}
+              <Feed />
+            </div>
+            <div className='container w-4/12 p-2  hidden md:block max-w-[100%]  ' >
+              <RsideBar />
+            </div>
           </div>
         </div>
+       <SmallNavbar/>
       </div>
     </>
   )

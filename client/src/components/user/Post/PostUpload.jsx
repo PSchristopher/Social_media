@@ -10,7 +10,7 @@ import 'react-image-crop/dist/ReactCrop.css'
 function PostUpload() {
 
   const inputRef = useRef()
-const triggerFileSelectPopup = ()=>inputRef.current.click()
+  const triggerFileSelectPopup = () => inputRef.current.click()
 
   const { ShowPostModal, setShowPostModal } = useContext(AppContext)
   const [Image, setImage] = useState('')
@@ -40,27 +40,33 @@ const triggerFileSelectPopup = ()=>inputRef.current.click()
 
   }
   const upload = () => {
-    console.log("upload cheyyan povann");
-
-    const formData = new FormData()
-    for (let key in post) {
-      formData.append(key, post[key])
-    }
-    console.log("post");
-    console.log(post);
-    console.log("formData");
-    console.log(formData);
-    axios.post('/newPost', formData).then((response) => {
-      if (response.data.status) {
-        setShowPostModal(false)
-        console.log("post added successfully");
-      } else {
-        setShowPostModal(false)
-        console.log("something went wrong");
+    console.log(post, "upload cheyyan povann");
+    if (post.image == '') {
+      console.log("poyilla")
+    } else {
+      const formData = new FormData()
+      for (let key in post) {
+        formData.append(key, post[key])
       }
-    })
+      console.log("post");
+      console.log(post);
+      console.log("formData");
+      console.log(formData);
+      axios.post('/newPost', formData, {
+        headers: {
+          "x-access-token": localStorage.getItem("Usertoken"),
+        },
+      }).then((response) => {
+        if (response.data.status) {
+          setShowPostModal(false)
+          console.log("post added successfully");
+        } else {
+          setShowPostModal(false)
+          console.log("something went wrong");
+        }
+      })
 
-    
+    }
   }
   return (
     <div>
@@ -74,7 +80,7 @@ const triggerFileSelectPopup = ()=>inputRef.current.click()
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                <div className="flex items-start justify-between p-3 border-b border-solid border-slate-200 rounded-t">
                   <div className='flex bg-transparent rounded-full w-full'>
                     <img src={myPic} alt="" className='h-16 w-16 rounded-full object-cover border-[3px]' />
                     {/* <input type="text" /> */}
@@ -92,12 +98,12 @@ const triggerFileSelectPopup = ()=>inputRef.current.click()
                 {/*body*/}
                 <div className="relative p-6 flex h-[450px] bg-cover border-8  justify-center " style={{ backgroundImage: `url(${Image || 'https://imgs.search.brave.com/wyOMuJf8rNvTW5WUJoisK3bd0u7QBG5182Ov5vPpFbw/rs:fit:1000:667:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE0/ODUyODg3MzQ3NTYt/MGIzMWEwYTMxZDk1/P2l4bGliPXJiLTEu/Mi4xJml4aWQ9ZXlK/aGNIQmZhV1FpT2pF/eU1EZDkmdz0xMDAw/JnE9ODA'})` }}>
                   <div className='flex justify-center items-center '>
-                    <input type="file" title='' name='image' accept='.jpg' className='w-[100px]' ref={inputRef} style={{ color: `transparent`,display:'none' }} onChange={fileUpload} />
+                    <input type="file" title='' name='image' accept='.jpg' className='w-[100px]' ref={inputRef} style={{ color: `transparent`, display: 'none' }} onChange={fileUpload} required />
                     <button className='w-[100px] bg-[#0F213E] text-white rounded-lg text-lg' onClick={triggerFileSelectPopup}>Choose</button>
                   </div>
                 </div>
                 {/*footer*/}
-                <div className="flex items-center justify-center p-6  border-solid bg-black border-slate-200 border-4 border-t-4 rounded-b-lg">
+                <div className="flex items-center justify-center p-3  border-solid bg-black border-slate-200 border-4 border-t-4 rounded-b-lg">
                   {/* <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"

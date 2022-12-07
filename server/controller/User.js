@@ -3,6 +3,7 @@ const ChatModel = require('../Modal/chatModel')
 const userVerification = require('../Modal/userVerfication')
 const newPost = require('../Modal/post')
 const CommentSchema = require('../Modal/comment')
+const reportSchema = require('../Modal/report')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 var nodemailer = require('nodemailer');
@@ -76,10 +77,11 @@ module.exports = {
 
         try {
             console.log("HII");
+            console.log(req.body);
             let user = await User.findOne({ email: req.body.email })
             let userName = await User.findOne({ UserName: req.body.lname })
-            console.log(user);
-            if (userName.UserName == req.body.lname) {
+            console.log(userName);
+            if (userName?.UserName == req.body.lname) {
                 res.status(200).json({ message: 'User name Already Exists' })
             } else {
 
@@ -273,7 +275,6 @@ module.exports = {
             const followingPosts = await Promise.all(user.following.map((id) => {
                 return newPost.find({ userId: id }).populate('userId').sort({ Created: -1 })
             }))
-            console.log(myPost.concat(...followingPosts), "7uygtfrdertfyvgbuhnjihbugyftrde");
             res.status(200).json({ result: true, feed: myPost.concat(...followingPosts) })
 
             // if (posts) {
@@ -288,7 +289,7 @@ module.exports = {
 
     getUserPost: async (req, res) => {
         try {
-            let UserPosts = await newPost.find({ userId: req.params.id })
+            let UserPosts = await newPost.find({ userId: req.params.id }).sort({ Created: -1 })
             // console.log("UserPosts");
 
             // console.log(UserPosts);
@@ -344,7 +345,7 @@ module.exports = {
             } else {
                 if (editUser) {
                     console.log("else");
-                    if (req.file) {
+                    if (req.file) {        
 
                         var file = true
                     } else {
@@ -453,6 +454,7 @@ module.exports = {
     },
 
     searchUsers: async (req, res) => {
+        console.log("gh");
         console.log(req.query.searchdata);
         var q = req.query.searchdata
         let users = await User.find({ UserName: { $regex: new RegExp(q, 'i') } })
@@ -494,8 +496,109 @@ module.exports = {
         } catch (error) {
             res.status(500).json({ message: "something went wrong" })
         }
+    },
+
+
+    following: async (req, res) => {
+        try {
+
+            const following = await User.findOne({ _id: req.query.data }, { _id: 0, following: 1 })
+            console.log(following);
+            const followingList = await Promise.all(following.following.map((id, index) => {
+                return User.findOne({ _id: id }, { _id: 1, UserName: 1, image: 1 })
+
+            }))
+            console.log(followingList, "iubv");
+            res.status(200).json({ list: followingList })
+        } catch (error) {
+            res.status(500).json({ message: "something went wrong" })
+        }
+    },
+
+    followers: async (req, res) => {      
+        try {
+            const follower = await User.findOne({ _id: req.query.data }, { _id: 0, followers: 1 })
+            console.log(follower);
+            const followerList = await Promise.all(follower.followers.map((id, index) => {
+                return User.findOne({ _id: id }, { _id: 1, UserName: 1, image: 1 })
+
+            }))       
+            console.log(followerList, "iubv");
+            res.status(200).json({ list: followerList })
+        } catch (error) {
+            res.status(500).json({ message: "something went wrong" })
+        }
+    },
+
+    deletePost: async (req, res) => {
+        console.log(req.params.id, "jbhybh");
+        try {
+            const post = await newPost.deleteOne({ _id: req.params.id })
+            if (post) {
+                res.status(200).json(true)
+            } else {
+                res.status(500).json({ message: "something went wrong" })
+            }
+        } catch (error) {
+            res.status(500).json({ message: "something went wrong" })
+        }
+    },
+
+
+
+
+    postReport: async (req, res) => {
+        console.log(req.body);
+        try {
+            const reportData = new reportSchema({
+                postId: req.body.postId,
+                reportReason: req.body.reason,
+                userId: req.body.userId
+            })
+            let post = await newPost.findById(req.body.postId)
+            if (!post?.reporterID?.includes(req.body.userId)) {
+
+                await post.updateOne({
+                    $push: { reporterID: req.body.userId }
+                })
+                await reportData.save()
+                res.status(200).json({ message: "Post Reported Successfully" })
+            }
+        } catch (error) {
+            res.status(500).json({ message: "something went wrong" })
+        }
+    },
+
+    onlineUsers: async (req, res) => {
+        try {
+
+            console.log("sinubdnsm");
+            console.log(req.query);
+            
+            let liveusers = JSON.parse(req.query.liveuser)
+            let users =[]
+
+            liveusers?.map((item)=>{
+                users?.push(item?.userId !== req.query?.user && item?.userId )  
+            })
+
+            users = users.filter(item=>item != null && item)
+            console.log("users");
+            console.log(users);
+
+            let onlineUsers =await User.find({_id:{"$in":users}},{UserName:1,image:1,email:1})
+            res.status(200).json(onlineUsers)
+            console.log("onlineUsers");
+ 
+            console.log(onlineUsers);
+        } catch (error) {
+            console.log("erro");
+            console.log(error.message);
+            res.status(500).json({ message: "something went wrong" })
+
+        }
+
+
     }
-
-
 
 }

@@ -37,7 +37,14 @@ function Navbar() {
     let userDetails = localStorage.getItem("Usertoken") ? jwtdecode(localStorage.getItem("Usertoken")) : ''
 
     const getUser = () => {
-        axios.get(`/getUserDtails/${userDetails.id}`).then((response) => {
+        axios.get(`/getUserDtails/${userDetails.id}`,{
+            headers: {
+              "x-access-token": localStorage.getItem("Usertoken"),
+            },
+          }).then((response) => {
+            console.log("response");
+            console.log(response);
+            console.log("response");
             setUser(response.data)
         })
     }
@@ -48,9 +55,7 @@ function Navbar() {
 
 
     const addPost = () => {
-        console.log("hfvh");
         setShowPostModal(!ShowPostModal)
-        console.log(ShowPostModal);
     }
 
     const navigation = [
@@ -79,6 +84,7 @@ function Navbar() {
     // }, [])
 
     const search = async (e) => {
+        e.preventDefault()
         if (e.target.value.length > 0) {
 
             setSearchModal(true)
@@ -87,7 +93,11 @@ function Navbar() {
 
         }
         let searchData = e.target.value
-        axios.post(`/searchUsers?searchdata=${searchData}`).then((response) => {
+        axios.get(`/searchUsers?searchdata=${searchData}`, {
+            headers: {
+                "x-access-token": localStorage.getItem("Usertoken"),
+            },
+        }).then((response) => {
             setSearch(response.data)
 
         })
@@ -95,7 +105,7 @@ function Navbar() {
     return (
         <>
 
-            <Disclosure as="nav" className="bg-[#152442]">
+            <Disclosure as="nav" className="bg-[#152442] hidden  md:block">
                 {({ open }) => (
                     <>
 
@@ -159,20 +169,19 @@ function Navbar() {
                                     <div>
                                         <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                             <span className="sr-only">Open user menu</span>
-                                            {
-                                                User.image ?
+                                           
                                                     <img
                                                         className="h-8 w-8 rounded-full object-cover"
-                                                        src={`/images/${User.image} `}
+                                                        src={User.image?`/images/${User.image}`:`https://randomuser.me/api/portraits/lego/0.jpg`}
                                                         alt=""
                                                     />
-                                                    :
+                                                    {/* :
                                                     <img
                                                         className="h-8 w-8 rounded-full object-cover"
                                                         src={`https://randomuser.me/api/portraits/lego/0.jpg`}
                                                         alt=""
                                                     />
-                                            }
+                                            } */}
 
                                         </Menu.Button>
                                     </div>
@@ -249,11 +258,12 @@ function Navbar() {
                 )}
             </Disclosure>
             {searchModal ?
-                <div className='shadow-light bg-gray-300 p-4 w-[25%] rounded-lg absolute right-[20%] z-30  h-max-[200px] top-[4.5rem]'>
+                <div className='shadow-light bg-gray-300 p-4 w-[18%] rounded-lg absolute  z-30 left-52  h-max-[200px] top-[4.5rem]'>
+                  
+                   
                     {Search.map((item, index) => {
                         return (
                             <Link className='flex items-center cursor-pointer hover:bg-white rounded-lg p-3' key={index}
-                                // to="/searchProfile" state={{ user: item }}
                                 to={`${item._id != userDetails.id ? "/searchProfile" :"/userProfile"}`} state={{user:item}}
                                 onClick={() => { setSearchModal(false) }}>
                                 <div className='h-[40px] w-[40px] bg-gray-600 rounded-full mr-3'>
@@ -267,14 +277,13 @@ function Navbar() {
                                     <p className='font-bold	'>
                                         {item.UserName}
                                     </p>
-                                    <p className='underline decoration-dashed italic'>  
-                                        {item.email}
-                                    </p>
+                                    
                                 </div>
                             </Link>
                         )
                     })
                     }
+                    
                 </div> : null}
 
         </>

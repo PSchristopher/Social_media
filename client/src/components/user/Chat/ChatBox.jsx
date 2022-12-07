@@ -89,22 +89,20 @@ function ChatBox({ chat, currentUser, setSendMessage, receiveMessage }) {
     return (
         <>
             {chat ? (
-                <div
-                    className="hidden w-3/6 bg-[#314F5F6D] h-full md:flex flex-col justify-start items-stretch  ml-8 lg:rounded-r-md xl:rounded-none">
+                <div className=" w-3/6 bg-[#314F5F6D] h-full md:flex flex-col justify-start items-stretch  ml-8  rounded-lg">
                     {/*<!-- Header with name --> */}
-                    <div
-                        className="flex flex-row items-center justify-between px-3 py-2 bg-gray-50 bg-opacity-40 border-b-2 border-gray-100">
+                    <div className="flex flex-row items-center justify-between px-3 py-2  bg-opacity-40 border-b-2 border-gray-100">
                         <div className="">
 
                             <div className=" py-2 flex  items-center gap-4">
                                 {
-                                    userData?.image?
-                                    <img src={`/images/${userData?.image}`}
-                                        className="h-12 w-12 rounded-full self-end" alt="" />
+                                    userData?.image ?
+                                        <img src={`/images/${userData?.image}`}
+                                            className="h-12 w-12 rounded-full self-end" alt="" />
                                         :
                                         <img src={'https://imgs.search.brave.com/d0IIb0RSYo0SCzA8yldT5UCB9IByR7XvhKjLrb6F-Zc/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC53/UnR2T05fOEpLUlFn/aGRST3c1UXZRSGFI/YSZwaWQ9QXBp'} className="h-12 w-12 rounded-full self-end" alt="" />
                                 }
-                                <h2 className="   font-medium">{userData?.UserName} </h2>
+                                <h2 className="   font-medium text-white italic"><span>{userData?.fullname} || </span>{userData?.UserName} </h2>
                             </div>
 
                             {/* <p className="text-xs text-gray-500">4 memebres</p> */}
@@ -178,7 +176,7 @@ function ChatBox({ chat, currentUser, setSendMessage, receiveMessage }) {
                                                 <div className="flex flex-row p-2 w-11/12" ref={scroll}>
 
 
-                                                    <div className="w-11/12 p-2">
+                                                    <div className=" p-2">
                                                         <div className="bg-gray-300  p-3  rounded-tl-xl  rounded-tr-xl rounded-br-xl mb-2 relative">
                                                             <p className="text-sm">{message.text}</p>
                                                             {/* <p className="text-xs text-gray-500 absolute right-2 bottom-2">{format(message.createdAt)}</p> */}
@@ -211,7 +209,7 @@ function ChatBox({ chat, currentUser, setSendMessage, receiveMessage }) {
 
                             <InputEmoji
                                 value={newMessage}
-                                onChange={handleChange}  />
+                                onChange={handleChange} />
                         </div>
                         <div className="flex flex-row">
 
@@ -229,15 +227,17 @@ function ChatBox({ chat, currentUser, setSendMessage, receiveMessage }) {
                         </div>
                     </div>
                 </div>
-                    ) :
-                        (
-                            <div className='flex items-center '>
-                                <div className=' justify-center text-white'>
-                                    NO Conversation  Tap on a chat to start a Conversation
-                                </div>
-                                
+            ) :
+                (
+                    <div className="hidden w-3/6 bg-[#314F5F6D] h-full md:flex flex-col justify-start items-stretch  ml-8  rounded-lg">
+
+                        <div className='flex items-center '>
+                            <div className=' justify-center text-white h-full w-full'>
+                                <img src="https://img.freepik.com/free-vector/messaging-concept-illustration_114360-1326.jpg?w=740&t=st=1669961664~exp=1669962264~hmac=d24bc839ed5525d96eca887b8eb42b43cc96a6b5aa9ca63405e5f67a31574364" className='rounded-lg w-full h-[530px]' alt="" />
                             </div>
-                        )}
+                        </div>
+                    </div>
+                )}
 
 
         </>
