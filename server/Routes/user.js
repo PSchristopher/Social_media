@@ -32,4 +32,15 @@ router.put('/postReport',UserControl.postReport)
 
 router.post('/onlineUsers',UserControl.onlineUsers)
 
+router.get('/editPost',UserControl.editPost)
+
+router.get('/getNotification/:id',UserControl.getNotification)
+
+router.get('/getNotiCount/:id',UserControl.getNotiCount)
+
+router.put('/readStatus',UserControl.readStatus)
+
+router.put('/updatePost',UserControl.updatePost)
+
+
 module.exports = router;

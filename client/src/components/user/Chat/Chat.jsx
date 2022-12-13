@@ -1,45 +1,46 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Navbar from '../Home/Navbar'
 import { useSelector } from 'react-redux'
 import { userChats } from '../../../api/ChatRequest';
 import Converstion from './Converstion';
 import ChatBox from './ChatBox';
 import { io } from 'socket.io-client'
+import { SocketContext } from '../../../Context/SocketContext';
 
 function Chat() {
 
   const user = useSelector((state) => state.User)
   console.log(user);
-
+  const socket = useContext(SocketContext)
   const [chats, setChats] = useState([])
   const [currentChat, setCurrentChat] = useState()
   const [onlineUsers, setOnlineUsers] = useState([])
   const [sendMessage, setSendMessage] = useState(null)
   const [receiveMessage, setReceiveMessage] = useState(null)
-  const socket = useRef()
+  // const socket = useRef()
 
-console.log("onlineUsers");
-console.log(onlineUsers);
+  console.log("onlineUsers");
+  console.log(onlineUsers);
   // sending message to socket server
   useEffect(() => {
     if (sendMessage !== null) {
-      socket.current.emit('send-message', sendMessage)
+      socket.emit('send-message', sendMessage)
     }
   }, [sendMessage])
 
   useEffect(() => {
-    socket.current = io('http://localhost:8800')
-    socket.current.emit('new-user-add', user._id)
-    socket.current.on('get-users', (users) => {
-      setOnlineUsers(users)
+    // socket.current = io('http://localhost:8800')
+    socket.emit('new-user-add', user._id)
+    socket.on('get-users', (users) => {
 
+      setOnlineUsers(users)
     })
   }, [user])
 
   // receive message from socket server
 
   useEffect(() => {
-    socket.current.on('receive-message', (data) => {
+    socket.on('receive-message', (data) => {
       setReceiveMessage(data)
     })
 
@@ -78,16 +79,16 @@ console.log(onlineUsers);
               {/* <!-- Left section --> */}
               <div
                 className="w-full md:w-1/4 lg:w-1/4 xl:w-1/4 flex flex-col justify-start items-stretch  bg-[#314F5F6D] bg-opacity-80 rounded-md  lg:rounded-lg p-3">
-                
+
                 <div className="flex-auto flex flex-col">
                   <div className="flex-auto flex flex-row">
-                    
+
                     <div className="w-full ">
                       <div className="w-full p-1 flex justify-center">
 
                         <p className='text-white font-bold italic'>Message With Your Friends</p>
 
-                       
+
                       </div>
                       <div className="">
                         <ul className="min-w-full h-96  overflow-y-scroll overflow-hidden  scrollbar-hide messagelist">
@@ -98,7 +99,7 @@ console.log(onlineUsers);
                               </div>
                             )
                             )
-                          }          
+                          }
 
                         </ul>
                       </div>
@@ -112,8 +113,8 @@ console.log(onlineUsers);
 
 
               {/*<!-- Right section --> */}
-             
-              
+
+
             </section>
           </div>
         </div>

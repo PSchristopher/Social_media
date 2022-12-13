@@ -8,12 +8,14 @@ import { MdAddBox } from "react-icons/md";
 import { AiTwotoneBell } from "react-icons/ai";
 import logo from '../../../assets/logo.png'
 import { useNavigate, Link } from 'react-router-dom';
-import { AppContext } from '../../../Context/Context';
+import { AppContext, NotificationContex } from '../../../Context/Context';
 import axios from '../../../Axios/axios';
 import jwtdecode from "jwt-decode"
-import {useDispatch,useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { logout } from '../../../Redux/UserSlice';
+import { fetchCount, readStatus } from '../../../api/UserRequest';
+import { SocketContext } from '../../../Context/SocketContext';
 
 
 
@@ -23,7 +25,7 @@ function classNames(...classes) {
 }
 
 function Navbar() {
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
 
     const [User, setUser] = useState({})
 
@@ -33,15 +35,17 @@ function Navbar() {
 
     }, [])
 
+    const socket = useContext(SocketContext)
+    const user = useSelector((state) => state.User)
 
     let userDetails = localStorage.getItem("Usertoken") ? jwtdecode(localStorage.getItem("Usertoken")) : ''
 
     const getUser = () => {
-        axios.get(`/getUserDtails/${userDetails.id}`,{
+        axios.get(`/getUserDtails/${userDetails.id}`, {
             headers: {
-              "x-access-token": localStorage.getItem("Usertoken"),
+                "x-access-token": localStorage.getItem("Usertoken"),
             },
-          }).then((response) => {
+        }).then((response) => {
             console.log("response");
             console.log(response);
             console.log("response");
@@ -50,23 +54,41 @@ function Navbar() {
     }
 
     const { ShowPostModal, setShowPostModal } = useContext(AppContext)
+    const { Shownotification, setShowNotification } = useContext(NotificationContex)
+
     const [searchModal, setSearchModal] = useState(false)
     const [Search, setSearch] = useState([])
+    const [NotiCount, setNotiCount] = useState()
 
 
     const addPost = () => {
+        console.log("add");
         setShowPostModal(!ShowPostModal)
     }
 
+  
+
+    const notifi = async () => {
+        console.log("jvhvgh");
+        const { data } = await readStatus(user._id)
+        console.log(data, "readdddddddddddddddddd");
+        
+        setNotiCount()
+        setShowNotification(!Shownotification)
+
+
+    }
+
+
     const navigation = [
         { name: <AiFillHome />, href: '/', current: true },
-        { name: <RiMessage2Fill />,href: '/Chat', current: false },
+        { name: <RiMessage2Fill />, href: '/Chat', current: false },
         {
             name: <MdAddBox />,
             current: false,
             action: addPost
         },
-        { name: <AiTwotoneBell />, current: false },
+        { name: <AiTwotoneBell />, count: true, current: false, action: notifi },
     ]
 
     const navigate = useNavigate()
@@ -101,6 +123,25 @@ function Navbar() {
             setSearch(response.data)
 
         })
+    }
+
+    useEffect(() => {
+        try {
+            socket.on('get-notification', data => {
+                // setNotifications((prev) => [...prev, data])
+                // setnot(new Date())
+                fetchNotiCount()
+            })
+        } catch (error) {
+            console.log(error);
+        }
+
+    }, [socket])
+
+    const fetchNotiCount = async () => {
+        const { data } = await fetchCount(user._id)
+
+        setNotiCount(data)
     }
     return (
         <>
@@ -153,13 +194,14 @@ function Navbar() {
 
                                                 className={classNames(
                                                     item.current ? ' text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                    'px-3 py-2 rounded-md font-medium text-2xl'
+                                                    'px-3 py-2 rounded-md font-medium text-2xl relative'
                                                 )}
                                                 onClick={item.action}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
 
+                                                {item.count && NotiCount !== 0 ? <p className="px-1 text-xs text-white bg-red-500 rounded-full absolute top-0">{NotiCount}</p> : null}
                                             </Link>
                                         ))}
                                     </div>
@@ -169,13 +211,13 @@ function Navbar() {
                                     <div>
                                         <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                             <span className="sr-only">Open user menu</span>
-                                           
-                                                    <img
-                                                        className="h-8 w-8 rounded-full object-cover"
-                                                        src={User.image?`/images/${User.image}`:`https://randomuser.me/api/portraits/lego/0.jpg`}
-                                                        alt=""
-                                                    />
-                                                    {/* :
+
+                                            <img
+                                                className="h-8 w-8 rounded-full object-cover"
+                                                src={User.image ? `/images/${User.image}` : `https://randomuser.me/api/portraits/lego/0.jpg`}
+                                                alt=""
+                                            />
+                                            {/* :
                                                     <img
                                                         className="h-8 w-8 rounded-full object-cover"
                                                         src={`https://randomuser.me/api/portraits/lego/0.jpg`}
@@ -259,12 +301,12 @@ function Navbar() {
             </Disclosure>
             {searchModal ?
                 <div className='shadow-light bg-gray-300 p-4 w-[18%] rounded-lg absolute  z-30 left-52  h-max-[200px] top-[4.5rem]'>
-                  
-                   
+
+
                     {Search.map((item, index) => {
                         return (
                             <Link className='flex items-center cursor-pointer hover:bg-white rounded-lg p-3' key={index}
-                                to={`${item._id != userDetails.id ? "/searchProfile" :"/userProfile"}`} state={{user:item}}
+                                to={`${item._id != userDetails.id ? "/searchProfile" : "/userProfile"}`} state={{ user: item }}
                                 onClick={() => { setSearchModal(false) }}>
                                 <div className='h-[40px] w-[40px] bg-gray-600 rounded-full mr-3'>
 
@@ -277,14 +319,15 @@ function Navbar() {
                                     <p className='font-bold	'>
                                         {item.UserName}
                                     </p>
-                                    
+
                                 </div>
                             </Link>
                         )
                     })
                     }
-                    
+
                 </div> : null}
+
 
         </>
     )

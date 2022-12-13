@@ -10,7 +10,7 @@ import Navbar from '../../../components/user/Home/Navbar'
 import { IoEye } from 'react-icons/io5'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { showFollower, showFollowing } from "../../../api/UserRequest";
+import { editUserPost, showFollower, showFollowing } from "../../../api/UserRequest";
 function Profile() {
   const inputRef = useRef()
 
@@ -32,8 +32,7 @@ function Profile() {
   const [postView, setpostView] = useState(false)
   const [followings, setFollowings] = useState({})
   const [ffModal, setffModal] = useState(false)
-  // const [postView, setpostView] = useState(true);
-
+const [singlePostData, setsinglePostData] = useState()
 
 
   useEffect(() => {
@@ -121,6 +120,8 @@ function Profile() {
   }
 
   const viewDetails = async (postId) => {
+    const { data } = await editUserPost(postId)
+    setsinglePostData(data)
     setpostView(!postView)
     
   }
@@ -419,16 +420,16 @@ function Profile() {
                                 <div className='flex flex-col   w-full'>
                                   <div className='p-5 bg-white   rounded-t-2xl border-slate-200 border-t shadow-md'>
                                     <div className='flex items-center space-x-2'>
-                                      <img src="https://imgs.search.brave.com/JC3yuRG8o8d2G-kk-gDv7DrSKVLLPa5QoIK2uoMr9QE/rs:fit:641:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5V/enVZTVhkQjNEUFVu/UE9ld2hha0N3SGFG/ZSZwaWQ9QXBp" className='rounded-full w-10 h-10'alt="" />
+                                      <img src={"https://imgs.search.brave.com/JC3yuRG8o8d2G-kk-gDv7DrSKVLLPa5QoIK2uoMr9QE/rs:fit:641:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5V/enVZTVhkQjNEUFVu/UE9ld2hha0N3SGFG/ZSZwaWQ9QXBp"} className='rounded-full w-10 h-10'alt="" />
                                       <div>
-                                        <p className='font-medium'></p>
+                                        <p className='font-medium'>bnb</p>
                                         <p className='text-xs text-gray-400'></p>
                                       </div>
                                     </div>
                                     <p className='pt-4'></p>
                                   </div>
                                   <div className='relative w-full   bg-white '>
-                                    <img className='object w-[800px] h-[300px]' alt="" />
+                                    <img className='object-cover w-[700px] h-[400px]' src={singlePostData?.image?`/images/${singlePostData?.image}`:""} alt="" />
                                   </div>
 
                                   <div className='flex justify-between rounded-b-2xl items-center  bg-white  text-gray-400 border-t '>
@@ -465,7 +466,7 @@ function Profile() {
                                           <div className="flex gap-3 py-2 pl-3 items-center bg-white">
                                             <div>
                                               <img src="https://imgs.search.brave.com/JC3yuRG8o8d2G-kk-gDv7DrSKVLLPa5QoIK2uoMr9QE/rs:fit:641:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5V/enVZTVhkQjNEUFVu/UE9ld2hha0N3SGFG/ZSZwaWQ9QXBp" className='rounded-full' width={30} height={30} alt="" />
-                                            </div>
+                                            </div>k
                                             <div>
                                               <div>
                                                 <span className="font-medium text-sm mr-2">zzz</span>

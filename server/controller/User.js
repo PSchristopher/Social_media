@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 var nodemailer = require('nodemailer');
 var multer = require('../config/multterConfig');
 const mongoose = require('mongoose');
+const notiSchema = require('../Modal/notificationSchema')
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -345,7 +346,7 @@ module.exports = {
             } else {
                 if (editUser) {
                     console.log("else");
-                    if (req.file) {        
+                    if (req.file) {
 
                         var file = true
                     } else {
@@ -387,10 +388,24 @@ module.exports = {
             data = req.body
             let post = await newPost.findById(data.postid)
 
+            const details = {
+                user: req.body.userId,
+                desc: 'Liked Your Post',
+                time: Date.now()
+            }
+
             if (!post.Likes.includes(req.body.userId)) {
                 await post.updateOne({ $push: { Likes: req.body.userId } })
                 // console.log(post);
-                res.status(200).json({ message: 'post Liked' })
+                if (post.userId !== req.body.userId) {
+
+                    await notiSchema.updateOne({ userId: post.userId }, {
+                        $push: {
+                            Notifications: details
+                        }
+                    }, { upsert: true })
+                }
+                res.status(200).json({ liked: true, message: 'post Liked' })
             } else {
                 await post.updateOne({ $pull: { Likes: req.body.userId } })
                 // console.log(post);
@@ -515,14 +530,14 @@ module.exports = {
         }
     },
 
-    followers: async (req, res) => {      
+    followers: async (req, res) => {
         try {
             const follower = await User.findOne({ _id: req.query.data }, { _id: 0, followers: 1 })
             console.log(follower);
             const followerList = await Promise.all(follower.followers.map((id, index) => {
                 return User.findOne({ _id: id }, { _id: 1, UserName: 1, image: 1 })
 
-            }))       
+            }))
             console.log(followerList, "iubv");
             res.status(200).json({ list: followerList })
         } catch (error) {
@@ -572,33 +587,93 @@ module.exports = {
     onlineUsers: async (req, res) => {
         try {
 
-            console.log("sinubdnsm");
-            console.log(req.query);
-            
-            let liveusers = JSON.parse(req.query.liveuser)
-            let users =[]
 
-            liveusers?.map((item)=>{
-                users?.push(item?.userId !== req.query?.user && item?.userId )  
+
+            let liveusers = JSON.parse(req.query.liveuser)
+            let users = []
+
+            liveusers?.map((item) => {
+                users?.push(item?.userId !== req.query?.user && item?.userId)
             })
 
-            users = users.filter(item=>item != null && item)
-            console.log("users");
-            console.log(users);
+            users = users.filter(item => item != null && item)
 
-            let onlineUsers =await User.find({_id:{"$in":users}},{UserName:1,image:1,email:1})
+
+            let onlineUsers = await User.find({ _id: { "$in": users } }, { UserName: 1, image: 1, email: 1 })
             res.status(200).json(onlineUsers)
-            console.log("onlineUsers");
- 
-            console.log(onlineUsers);
+
+
+
         } catch (error) {
-            console.log("erro");
-            console.log(error.message);
+
             res.status(500).json({ message: "something went wrong" })
 
         }
 
 
+    },
+
+    editPost: async (req, res) => {
+        console.log(req.query);
+        try {
+            let post = await newPost.findOne({ _id: req.query.data })
+            console.log(post, "postabhbh");
+            res.status(200).json(post)
+        } catch (error) {
+            res.status(500).json({ message: "something went wrong" })
+        }
+    },
+
+    getNotification: async (req, res) => {
+        try {
+            const data = await notiSchema.findOne({ userId: req.params.id }, { _id: 0, userId: 0 }).populate("Notifications.user", "UserName image")
+            // const read = await notiSchema.updateOne({userId:req.params.id},{$set:{'Notifications.$[].readStatus':true}})     
+            const noti = data.Notifications.reverse()
+            res.status(200).json(noti)
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: "something went wrong" })
+        }
+    },
+
+    getNotiCount: async (req, res) => {
+        try {
+            const notifics = await notiSchema.findOne({ userId: req.params.id })
+            const fitered = notifics.Notifications.filter((data) => {
+                if (!data.readStatus) {
+                    return data
+                }
+
+            })
+            console.log(fitered?.length, "hgbhh");
+            res.status(200).json(fitered?.length)
+
+        } catch (error) {
+            res.status(500).json({ message: "something went wrong" })
+
+        }
+    },
+
+    readStatus: async (req, res) => {
+        console.log(req.body);
+        try {
+            const read = await notiSchema.updateOne({ userId: req.body.data }, { $set: { 'Notifications.$[].readStatus': true } })
+            console.log(read, "readddddddddddddddd");
+            if (read) {
+                res.status(200).json(true)
+            }
+        } catch (error) {
+            res.status(500).json({ message: "something went wrong" })
+
+        }
+    },
+
+    updatePost : async (req, res) => {
+try {
+    console.log(req.body);
+} catch (error) {
+    res.status(500).json({ message: "something went wrong" })
+}
     }
 
 }

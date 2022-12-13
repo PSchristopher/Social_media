@@ -1,11 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { allOnlineUsers } from '../../../api/UserRequest';
 import myPic from '../../../assets/myPic.jpg'
 import { io } from 'socket.io-client'
+import { SocketContext } from '../../../Context/SocketContext';
 
 function LsideBar() {
-    const socket = useRef()
+    // const socket = useRef()
+    const socket = useContext(SocketContext)
 
     const user = useSelector((state) => state.User)
 
@@ -17,15 +19,15 @@ function LsideBar() {
 
 
     useEffect(() => {
-        socket.current = io('http://localhost:8800')
-        socket.current.emit('new-user-add', user._id)
+        // socket.current = io('http://localhost:8800')
+        socket.emit('new-user-add', user._id)
         getOnlineUsers()
 
     }, [user])
 
     const getOnlineUsers = () => {
         try {
-            socket.current.on('get-users', async (users) => {
+            socket.on('get-users', async (users) => {
                 let dataa = JSON.stringify(users)
                 const { data } = await allOnlineUsers(user._id, dataa)
                 console.log("data");
